@@ -1,3 +1,11 @@
+<?php
+//Vérification qu'une session n'est pas déjà ouverte
+if (session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
+ ?>
+<?php require 'src/controllers/flashMessage.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,13 +20,23 @@
     <div>
         <ul>
             <li><a href="index.php">Retour à l'accueil</a></li>
-            <li><a href="src/controllers/menu.php">La carte</a></li>
-            <li><a href="src/controllers/booking.php">Réserver</a></li>
-            <li><a href="src/controllers/login.php">Se connecter</a></li>
-            <li><a href="src/controllers/register.php">S'inscrire</a></li>
+            <li><a href="menu.php">La carte</a></li>
+            <li><a href="booking.php">Réserver</a></li>
+            <?php if (isset($_SESSION['authUser'])): ?>
+                  <li><a href="logout.php">Se déconnecter</a></li>
+              <?php elseif (isset($_SESSION['authAdmin'])): ?>
+                    <li><a href="admin.php">Espace Administration</a></li>
+                    <li><a href="logout.php">Se déconnecter</a></li>
+             <?php else: ?>
+                  <li><a href="login.php">Se connecter</a></li>
+              <?php endif; ?>
+            <li><a href="register.php">S'inscrire</a></li>
         </ul>
     </div>
 </header>
+<div>
+<?php flashMessage(); ?>
+</div>
     <?= $content ?>
 </body>
 </html>
