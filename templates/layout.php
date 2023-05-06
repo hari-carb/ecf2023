@@ -20,15 +20,15 @@ if (session_status() == PHP_SESSION_NONE)
     <div>
         <ul>
             <li><a href="index.php">Retour à l'accueil</a></li>
-            <li><a href="menu.php">La carte</a></li>
+            <li><a href="menus.php">La carte</a></li>
             <li><a href="booking.php">Réserver</a></li>
             <?php if (isset($_SESSION['authUser'])): ?>
-                  <li><a href="logout.php">Se déconnecter</a></li>
-              <?php elseif (isset($_SESSION['authAdmin'])): ?>
-                    <li><a href="admin.php">Espace Administration</a></li>
-                    <li><a href="logout.php">Se déconnecter</a></li>
+                <li><a href="logout.php">Se déconnecter</a></li>
+            <?php elseif (isset($_SESSION['authAdmin'])): ?>
+                <li><a href="admin.php">Espace Administration</a></li>
+                <li><a href="logout.php">Se déconnecter</a></li>
              <?php else: ?>
-                  <li><a href="login.php">Se connecter</a></li>
+                <li><a href="login.php">Se connecter</a></li>
               <?php endif; ?>
             <li><a href="register.php">S'inscrire</a></li>
         </ul>
