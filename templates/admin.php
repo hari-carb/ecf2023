@@ -6,13 +6,13 @@
 
 <div>
     <h3>Gérer les utilisateurs et administrateurs</h3>
-    <a href="src/controllers/admin/admin-users.php">Ajouter, modifier ou supprimer</a>
+    <a href="src/controllers/admin/users/admin-users.php">Ajouter, modifier ou supprimer</a>
 
     <h3>Gérer la carte</h3>
-    <a href="">Ajouter, modifier ou supprimer</a>
+    <a href="src/controllers/admin/carte/admin-carte.php">Ajouter, modifier ou supprimer</a>
     
     <h3>Gérer les menus</h3>
-    <a href="">Ajouter, modifier ou supprimer</a>
+    <a href="src/controllers/admin/menus/admin-menus.php">Ajouter, modifier ou supprimer</a>
 
     <h3>Gérer les réservations</h3>
     <a href="">Ajouter, modifier ou supprimer</a>
