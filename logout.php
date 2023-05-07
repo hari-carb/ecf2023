@@ -1,3 +1,3 @@
 <?php 
-require_once 'src/controllers/logout.php';
+require_once 'src/controllers/log/logout.php';
 logout();

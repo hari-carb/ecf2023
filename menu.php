@@ -1,3 +1,3 @@
 <?php 
-require_once 'src/controllers/menus/menu.php';
+require_once __DIR__ .'/src/controllers/menus-carte/menu.php';
 menu();

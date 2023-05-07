@@ -1,3 +1,3 @@
 <?php 
-require_once 'src/controllers/register.php';
+require_once __DIR__ .'/src/controllers/log/register.php';
 register();

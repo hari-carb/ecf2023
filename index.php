@@ -1,3 +1,3 @@
 <?php 
-require_once 'src/controllers/homepage.php';
+require_once __DIR__ .'/src/controllers/homepage.php';
 homepage();

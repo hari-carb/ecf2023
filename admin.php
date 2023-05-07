@@ -1,3 +1,3 @@
 <?php 
-require_once 'src/controllers/admin.php';
+require_once __DIR__ .'/src/controllers/admin.php';
 admin();
