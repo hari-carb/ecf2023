@@ -2,7 +2,7 @@
 
 
 <?php ob_start(); ?>
-<?php require __DIR__ .'/nav-admin.php'; ?>
+<?php require __DIR__ .'/../nav-admin.php'; ?>
 <h1>Ajouter un utilisateur ou administrateur</h1>
 
 <form class="" action="" method="POST">
@@ -33,5 +33,5 @@
 </form>
 <?php $content = ob_get_clean(); ?>
 
-<?php require __DIR__ .'/../layout-admin.php'; ?>
+<?php require __DIR__ .'/../../layout-admin.php'; ?>
 

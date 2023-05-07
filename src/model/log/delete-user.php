@@ -1,8 +1,10 @@
 <?php
-require __DIR__ .'/../db.php';$getId = $_GET['id'];
 
+require_once __DIR__ .'/../db.php';
+$getId = $_GET['id'];
 $users = $pdo->prepare('SELECT * FROM users WHERE id = ?');
 $users->execute(array($getId));
+
 if ($users->rowCount() > 0)
 {
     $deleteUser = $pdo->prepare('DELETE FROM users WHERE id = ?');

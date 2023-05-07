@@ -2,10 +2,10 @@
 
 
 <?php ob_start(); ?>
-<?php require __DIR__ .'/nav-admin.php'; ?>
+<?php require __DIR__ .'/../nav-admin.php'; ?>
 <h1>Gestion des utilisateurs</h1>
 
-<h2><a href="../../../src/controllers/admin/add-user.php">Ajouter un utilisateur</a></h2>
+<h2><a href="add-user.php">Ajouter un utilisateur</a></h2>
 <h2>Modifier ou supprimer un utilisateur</h2>
 <table>
     <thead>
@@ -20,4 +20,4 @@
  </table>
 <?php $content = ob_get_clean(); ?>
 
-<?php require __DIR__ .'/../layout-admin.php'; ?>
+<?php require __DIR__ .'/../../layout-admin.php'; ?>
