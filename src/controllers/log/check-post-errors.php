@@ -1,5 +1,5 @@
 <?php
-require 'check-posts.php';
+require __DIR__ .'/check-posts.php';
 
 if (!empty($_POST))
     {
@@ -23,7 +23,7 @@ if (!empty($_POST))
                 $errors['email'] = "Votre email n'est pas valide";
             }else
             {
-                require 'src/model/users/register-email.php';
+                require  __DIR__ .'/../../model/log/register-email.php';
                 if ($email)
                 {
                 $errors['email'] = 'Cet email est déjà utilisé par un autre compte.';
@@ -36,14 +36,14 @@ if (!empty($_POST))
                 Il doit comporter au moins 8 caratères, une majuscule, une minuscule et un chiffre
                 et ne doit pas être différent du mot de passe de confirmation";
             }
-            require 'display-errors.php';
+            require __DIR__ .'/display-errors.php';
             if (!empty($errors))
             {
                 print '<div><p>Vous n\'avez pas rempli le formulaire correctement.</p><ul>'.
                 displayErrors($errors). '</ul></div>';
             }
             if (empty($errors)) {
-                require_once 'src/model/users/register.php';
+                require_once __DIR__ .'/../../model/log/register.php';
                 $_SESSION['flash']['success'] = 'Votre inscription a bien été validée';
                 header('Location: login.php');
             }

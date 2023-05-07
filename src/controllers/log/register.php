@@ -1,5 +1,5 @@
 <?php
-require 'src/controllers/users/check-post-errors.php';
+require __DIR__ .'/../log/check-post-errors.php';
 
 function register()
 {
@@ -8,5 +8,5 @@ function register()
         //Vérification et affichage des erreurs de saisie
         checkPostErrors();
     }
-    require 'templates/register.php';
+    require __DIR__ .'/../../../templates/log/register.php';
 }

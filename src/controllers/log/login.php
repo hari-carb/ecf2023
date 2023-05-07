@@ -3,7 +3,7 @@ function login()
 {
     if(!empty($_POST) && !empty($_POST['email']) && !empty($_POST['password']))
     {
-      require_once 'src/model//users/login.php';
+      require_once __DIR__ .'/../../model/log/login.php';
       //Vérification conformité email/bdd
       if (password_verify($_POST['password'], $userClient->password))
       {
@@ -26,5 +26,5 @@ function login()
         $_SESSION['flash']['danger'] = 'Mot de passe incorrect';
       }
     }
-    require 'templates/login.php';
+    require __DIR__ .'/../../../templates/log/login.php';
 }

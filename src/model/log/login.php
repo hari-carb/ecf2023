@@ -1,5 +1,5 @@
 <?php
-require "src/model/db.php";
+require __DIR__ .'/../db.php';
 //login user
 $userLogin = $pdo->prepare("SELECT * FROM users WHERE email = :email AND type= 'user'");
 $userLogin->execute(['email' => $_POST['email']]);
