@@ -1,7 +1,7 @@
 <?php
 function displayAdminUsers()
 {
-    require 'C:\wamp64\www\quai-antique\src\model\db.php';
+    require __DIR__ .'/../../model/db.php';
     $users = 'SELECT * FROM users ORDER BY username';
     foreach ($pdo->query($users) as $user)
     {
@@ -11,8 +11,8 @@ function displayAdminUsers()
             <td>'. $user->username.'</td>
             <td>'. $user->firstname.'</td>
             <td>'. $user->email.'</td>
-            <td><button type="submit"><a href="update-user.php?id="'. $user->id. '">Modifier</a></button></td>
-            <td><button type="submit"><a href="delete-user.php?id="'. $user->id. '">Supprimer</a></button></td>
+            <td><button type="submit"><a href="update-user.php?id='. $user->id. '">Modifier</a></button></td>
+            <td><button type="submit"><a href="delete-user.php?id='. $user->id. '">Supprimer</a></button></td>
         </tr>';
     }
        return $displayAdminUser;
