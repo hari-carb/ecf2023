@@ -2,7 +2,6 @@
 
 
 <?php ob_start(); ?>
-<?php require __DIR__ .'/../nav-admin.php'; ?>
 <h1>Ajouter un utilisateur ou administrateur</h1>
 
 <form class="" action="" method="POST">

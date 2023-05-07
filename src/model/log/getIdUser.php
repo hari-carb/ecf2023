@@ -1,6 +1,4 @@
-<?php
-require __DIR__ .'/../db.php';
-
+<?php require __DIR__ .'/../db.php';
 
 $getIdUser = $_GET['id'];
 $users = $pdo->prepare('SELECT * FROM users WHERE id = ?');

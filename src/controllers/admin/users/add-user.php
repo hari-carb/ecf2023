@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require __DIR__ .'/../../log/check-post-errors.php';
 if (!empty($_POST))
     {

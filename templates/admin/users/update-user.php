@@ -1,6 +1,7 @@
+<?php $title = "Restaurant Le Quai Antique - Administration - Utilisateurs"; ?>
 
 <?php ob_start(); ?>
-<?php require __DIR__ .'/../nav-admin.php'; ?>
+
 <h1>Modifier un utilisateur ou administrateur</h1>
 
 <form class="" action="" method="POST">
