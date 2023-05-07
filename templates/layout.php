@@ -5,14 +5,14 @@ if (session_status() == PHP_SESSION_NONE)
   session_start();
 }
  ?>
-<?php require 'src/controllers/flashMessage.php'; ?>
+<?php require __DIR__ .'/../src/controllers/flashMessage.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style/style.css" rel="stylesheet">
+    <link href="style\style.css" rel="stylesheet">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE)
     <div>
         <ul>
             <li><a href="index.php">Retour à l'accueil</a></li>
-            <li><a href="menus.php">La carte</a></li>
+            <li><a href="menus-carte.php">La carte</a></li>
             <li><a href="booking.php">Réserver</a></li>
             <?php if (isset($_SESSION['authUser'])): ?>
                 <li><a href="logout.php">Se déconnecter</a></li>

@@ -2,7 +2,7 @@
 
 
 <?php ob_start(); ?>
-<?php require('templates/nav-menu.php') ?>
+<?php require __DIR__ .'/nav-menu.php'; ?>
 <?php $content = ob_get_clean(); ?>
 
-<?php require('templates/layout.php') ?>
+<?php require __DIR__ .'/../layout.php'; ?>

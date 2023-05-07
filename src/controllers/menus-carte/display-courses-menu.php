@@ -2,7 +2,7 @@
 //dans menu.php
 function displayCoursesByMenu($menuId)
 {
-    require 'src/model/db.php';
+    require __DIR__ .'/../../model/db.php';
     $courses = "SELECT title, description FROM menu_par_plats_categories WHERE menu_id='$menuId'";
     foreach ($pdo->query($courses) as $course)
     {
@@ -14,7 +14,7 @@ function displayCoursesByMenu($menuId)
 //dans carte.php
 function displayCoursesByCategories($type)
 {
-    require 'src/model/db.php';
+    require __DIR__ .'/../../model/db.php';
     $coursesCat = "SELECT title, description, price FROM plats_par_categories WHERE type= '$type'";
     print '<h3>'. $type .'s</h3>';
     foreach ($pdo->query($coursesCat) as $course)

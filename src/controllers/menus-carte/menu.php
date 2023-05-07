@@ -1,12 +1,13 @@
 <?php
-require 'display-courses-menu.php';
+require __DIR__ .'/display-courses-menu.php';
 
 function menu()
 {
-    require 'templates/menus/menu.php';
+    require __DIR__ .'/display-menus.php';
+    require __DIR__ .'/../../../templates/menus-carte/menu.php';
     if (isset($_GET['id']) && !empty($_GET['id']))
     {
-        require 'src/model/menus/menu.php';
+        require __DIR__ .'/../../model/menus-carte/menu.php';
         print '<h3>Menu '. $menuName->menu .'</h3>';
         displayCoursesByMenu($getIdMenu);
     }else

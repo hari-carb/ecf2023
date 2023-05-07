@@ -2,7 +2,7 @@
 
 function displayCategories()
 {
-    require 'src/model/db.php';
+    require __DIR__ .'/../../model/db.php';
     $categories = "SELECT type FROM categories";
     foreach ($pdo->query($categories) as $category)
     {

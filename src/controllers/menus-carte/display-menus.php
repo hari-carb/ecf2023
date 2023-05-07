@@ -2,7 +2,7 @@
 
 function displayMenus()
 {
-    require 'src/model/db.php';
+    require __DIR__ .'/../../model/db.php';
     $menus = 'SELECT * FROM menus';
     foreach ($pdo->query($menus) as $menu)
     {
