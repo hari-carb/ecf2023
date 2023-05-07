@@ -5,7 +5,7 @@
 <?php require __DIR__ .'/nav-admin.php'; ?>
 <h1>Gestion des utilisateurs</h1>
 
-<h2><a href="">Ajouter un utilisateur</a></h2>
+<h2><a href="../../../src/controllers/admin/add-user.php">Ajouter un utilisateur</a></h2>
 <h2>Modifier ou supprimer un utilisateur</h2>
 <table>
     <thead>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require __DIR__ .'/check-posts.php';
 
 if (!empty($_POST))
@@ -42,10 +43,17 @@ if (!empty($_POST))
                 print '<div><p>Vous n\'avez pas rempli le formulaire correctement.</p><ul>'.
                 displayErrors($errors). '</ul></div>';
             }
-            if (empty($errors)) {
+            if (empty($errors))
+            {
                 require_once __DIR__ .'/../../model/log/register.php';
                 $_SESSION['flash']['success'] = 'Votre inscription a bien été validée';
-                header('Location: login.php');
+                if ($_SESSION['authAdmin'])
+                {
+                    header('Location: admin-users.php');
+                }else
+                {
+                    header('Location: login.php');
+                }
             }
        }
     }
