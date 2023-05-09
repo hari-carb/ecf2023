@@ -8,7 +8,7 @@
 </div>
 <div>
     <h2>La carte</h2>
-    <button><a href="carte.php">Consulter</a></button>    
+    <button class="submit"><a href="carte.php">Consulter</a></button>    
 </div>
 <?php $content = ob_get_clean(); ?>
 

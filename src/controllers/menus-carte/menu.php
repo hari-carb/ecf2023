@@ -8,7 +8,7 @@ function menu()
     if (isset($_GET['id']) && !empty($_GET['id']))
     {
         require __DIR__ .'/../../model/menus-carte/menu.php';
-        print '<h3>Menu '. $menuName->menu .'</h3>';
+        print '<h2>Menu '. $menuName->menu .'</h2>';
         displayCoursesByMenu($getIdMenu);
     }else
     {
