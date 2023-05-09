@@ -12,8 +12,8 @@ function adminDisplayCoursesByCategories($type)
             <td>'. $course->title. '</td>
             <td>'. $course->description. '</td>
             <td>' .$course->price. '</td>
-            <td><button><a href="update-course.php?id='. $course->p_id. '">Modifier</a></button></td>
-            <td><button><a href="delete-course.php?id=' .$course->p_id. '">Supprimer</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="update-course.php?id='. $course->p_id. '">Modifier</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-course.php?id=' .$course->p_id. '">Supprimer</a></button></td>
         </tr>';
     }
     return $displayCourse;

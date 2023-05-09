@@ -2,20 +2,22 @@
 
 
 <?php ob_start(); ?>
-<?php require __DIR__ .'/../nav-admin.php'; ?>
 <h1>Gestion des utilisateurs</h1>
 
 <h2><a href="add-user.php">Ajouter un utilisateur</a></h2>
-<h2>Modifier ou supprimer un utilisateur</h2>
-<table>
+<h2>Listes des clients et administrateurs</h2>
+<table name="liste-admin-users" class="table table-responsive table-sm table-striped table-bordered vertical-align-middle">
     <thead>
         <tr>
-            <th colspan="6">Listes des clients et administrateurs</th>
+            <th></th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
         </tr>
     </thead>
     <tbody>
-        <?php displayAdminUsers();
-; ?>
+        <?php displayAdminUsers(); ?>
     </tbody>
  </table>
 <?php $content = ob_get_clean(); ?>

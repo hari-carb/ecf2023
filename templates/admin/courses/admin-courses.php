@@ -1,4 +1,4 @@
- <?php $title = "Restaurant Le Quai Antique - Administration - Utilisateurs"; ?>
+ <?php $title = "Restaurant Le Quai Antique - Administration - Carte"; ?>
 
 <?php require __DIR__ .'/../../../src/controllers/admin/courses/display-courses.php';?>
 
@@ -7,10 +7,9 @@
 <h1>Gestion de la carte</h1>
 
 <h2><a href="add-course.php">Ajouter un plat</a></h2>
-<h2>Modifier ou supprimer un plat</h2>
+<h2>Liste des plats</h2>
 <?php $courses = 'SELECT * FROM  plats_by_cat1';?>
-<table>
-    <caption><h3>Listes des plats</h3></caption>
+<table name="liste-admin-courses" class="table table-responsive table-sm table-striped table-bordered vertical-align-middle">
     <thead>
         <tr>
         <th>Catégorie</th>

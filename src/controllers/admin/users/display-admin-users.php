@@ -10,10 +10,10 @@ function displayAdminUsers()
             <td>'. $user->type.'</td>
             <td>'. $user->username.'</td>
             <td>'. $user->firstname.'</td>
-            <td>'. $user->email.'</td>
+            <td class="text-break">'. $user->email.'</td>
             <td>'. $user->tel.'</td>
-            <td><button type="submit"><a href="update-user.php?id='. $user->id. '">Modifier</a></button></td>
-            <td><button type="submit"><a href="delete-user.php?id='. $user->id. '">Supprimer</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="update-user.php?id='. $user->id. '">Modifier</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-user.php?id='. $user->id. '">Supprimer</a></button></td>
         </tr>';
     }
        return $displayAdminUser;

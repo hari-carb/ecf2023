@@ -143,3 +143,12 @@ option{
   color: #9999A1;
 }
 /*fin form*/
+
+.btn > a {
+    color: white;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+.table {
+    font-size: 0.8rem
+}

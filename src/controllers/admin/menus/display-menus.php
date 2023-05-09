@@ -7,9 +7,9 @@ function adminDisplayMenusByName($menuName)
     {
         $displayMenu = print
         '<tr>
-            <td>'. $menu->name. '</td>
-            <td>'. $menu->price. '</td>
-            <td><button><a href="add-menu.php?id=' .$menu->id. '">Ajouter un plat</a></button></td>';
+            <td colspan="2"><h3>'. $menu->name. '</h3></td>
+            <td><h3>'. $menu->price. ' €</h3></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="add-menu.php?id=' .$menu->id. '">Ajouter un plat</a></button></td>';
     }
     return $displayMenu;
 }
@@ -25,7 +25,7 @@ function adminDisplayMenu($menu)
             <td>'. $course->category1_type. '</td>
             <td>'. $course->title. '</td>
             <td>'. $course->description. '</td>
-            <td><button><a href="delete-menu.php?menuId=' .$course->menu_id. '&platId=' .$course->plats_id. '">Supprimer du menu</a></button></td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-menu.php?menuId=' .$course->menu_id. '&platId=' .$course->plats_id. '">Supprimer du menu</a></button></td>
 
         </tr>';
     }
