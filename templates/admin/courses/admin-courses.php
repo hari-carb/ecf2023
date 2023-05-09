@@ -8,7 +8,7 @@
 
 <h2><a href="add-course.php">Ajouter un plat</a></h2>
 <h2>Modifier ou supprimer un plat</h2>
-<?php $courses = 'SELECT * FROM  plats_par_cat_ent_plat_dess';?>
+<?php $courses = 'SELECT * FROM  plats_by_cat1';?>
 <table>
     <caption><h3>Listes des plats</h3></caption>
     <thead>

@@ -3,12 +3,12 @@
 function adminDisplayCoursesByCategories($type)
 {
     require __DIR__ .'/../../../model/db.php';
-    $courses = "SELECT title, description, price, p_id, type FROM plats_par_cat_ent_plat_dess WHERE type= '$type'";
+    $courses = "SELECT title, description, price, p_id, c1_id, c1_type FROM plats_by_cat1 WHERE c1_type= '$type'";
     print '<tr><td colspan="6"><h4>'. $type. 's</h4></td></tr>';
     foreach ($pdo->query($courses) as $course)
     {
         $displayCourse = print '<tr>
-            <td>'. $course->type. '</td>
+            <td>'. $course->c1_type. '</td>
             <td>'. $course->title. '</td>
             <td>'. $course->description. '</td>
             <td>' .$course->price. '</td>

@@ -19,31 +19,31 @@
     </div>
         <legend>Entrée, plat, fromage ou Dessert</legend>
     <div>
-        <select name="course">
+        <select name="cat1">
             <option value="">Sélectionner</option>
-            <option value="4">Entrée</option>
-            <option value="5">Plat</option><
-            <option value="7">Fromage</option>
-            <option value="6">Dessert</option>
+            <option value="1">Entrée</option>
+            <option value="2">Plat</option><
+            <option value="3">Fromage</option>
+            <option value="4">Dessert</option>
         </select>
     </div>
 
     <legend>Autres catégories</legend>
     <div>
-      <input type="checkbox" id="meat" name="categories[]" value="2">
+      <input type="checkbox" id="meat" name="cat2[]" value="2">
       <label for="meat">Viande</label>
     </div>
 
     <div>
-      <input type="checkbox" id="fish" name="categories[]" value="1">
+      <input type="checkbox" id="fish" name="cat2[]" value="1">
       <label for="fish">Poisson</label>
     </div>
     <div>
-      <input type="checkbox" id="vege" name="categories[]"value="3">
+      <input type="checkbox" id="vege" name="cat2[]"value="3">
       <label for="vege">Végétarien</label>
     </div>
     <div>
-      <input type="checkbox" id="seafish" name="categories[]"value="8">
+      <input type="checkbox" id="seafish" name="cat2[]"value="8">
       <label for="seafish">Fruits de mer</label>
     </div>
 

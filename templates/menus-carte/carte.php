@@ -3,22 +3,22 @@
 
 <?php ob_start(); ?>
 <?php require __DIR__ .'/nav-menu.php'; ?>
-<div>
-    <select name="courses-cat" id="courses">
-        <option value="">Trier par</option>
-        <?php displayCategories(); ?>
-    </select>
+<div class="center">
+    <form id="formCat" onChange= "formCat.submit()" class="form-control" action="carte.php" method="POST">
+        <select name="selectCat" class="form-select" aria-label= "Default select exemple">
+            <option selected>Sélection</option>
+            <option value="1">Entrées</option>
+            <option value="2">Plats</option>
+            <option value="3">Fromage</option>
+            <option value="4">Dessert</option>
+            <option value="5">Végétarien</option>
+            <option value="6">Viande</option>
+            <option value="7">Poisson</option>
+            <option value="8">Fruits de mer</option>
+        </select>
+    </form>
 </div>
-<?php
-    displayCoursesByCategories('Entrée');
-    displayCoursesByCategories('Plat');
-    displayCoursesByCategories('Fromage');
-    displayCoursesByCategories('Dessert');
-    displayCoursesByCategories('Végétarien');
-    displayCoursesByCategories('Viande');
-    displayCoursesByCategories('Poisson');
-    displayCoursesByCategories('Fruits de mer');
-?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require __DIR__ .'/../layout.php'; ?>
