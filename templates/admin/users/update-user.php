@@ -3,7 +3,15 @@
 <?php ob_start(); ?>
 
 <h1>Modifier un utilisateur ou administrateur</h1>
-
+<div  class="errors">
+<?php
+if (!empty($_POST))
+{
+  require_once __DIR__ .'/../../../src/controllers/log/display.php';
+  insertDisplayErrors();
+}
+?>
+</div>
 <form class="" action="" method="POST">
     <label for="firstname">Prénom</label>
     <input type="text" class="" name="firstname" value="<?=$user->firstname;?>" required />
@@ -23,10 +31,11 @@
     <label for="password">Confirmez votre mot de passe</label>
     <input type="password" class="" name="password_confirm" required />
 
-    <input type="radio" class="" id="user" name="type" value="user"/><!--préremplir la valeur-->
     <label for="user">Client</label>
-    <input type="radio" class="" id="admin" name="type" value="admin"/>
+    <input type="radio" class="" id="user" name="type" value="user" 
+    <?php if ($user->type ="user") {echo 'checked="checked"';} ?> />
     <label for="admin">Administrateur</label>
+    <input type="radio" class="" id="admin" name="type" value="admin" />
 
     <button type="submit">Modifier le compte</button>
 </form>

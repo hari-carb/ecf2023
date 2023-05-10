@@ -5,7 +5,7 @@ function register()
     if (!empty($_POST))
     {
         //Vérification et affichage des erreurs de saisie
-        require_once __DIR__ .'/../log/check-post-errors.php';
+        require_once __DIR__ .'/check-post-errors.php';
         $errors = checkPostErrors();
         //Validation inscription
         if (empty($errors))

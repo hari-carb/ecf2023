@@ -3,7 +3,15 @@
 
 <?php ob_start(); ?>
 <h1>Ajouter un utilisateur ou administrateur</h1>
-
+<div  class="errors">
+<?php
+if (!empty($_POST))
+{
+  require_once __DIR__ .'/../../../src/controllers/log/display.php';
+  insertDisplayErrors();
+}
+?>
+</div>
 <form class="" action="" method="POST">
     <label for="firstname">Prénom</label>
     <input type="text" class="" name="firstname" placeholder="Jean" required />
