@@ -12,32 +12,24 @@ if (!empty($_POST))
 }
 ?>
 </div>
-<form class="" action="" method="POST">
-    <label for="firstname">Prénom</label>
-    <input type="text" class="" name="firstname" placeholder="Jean" required />
-
-    <label for="username">Nom de famille</label>
-    <input type="text" class="" name="username" placeholder="Dupont" required />
-
-    <label for="email">Email</label>
-    <input type="text" class="" name="email" placeholder="jean.dupont@gmail.com" required />
-
-    <label for="tel">Téléphone</label>
-     <input type="tel" class="" name="tel" placeholder="06********" required />
-
-    <label for="password">Mot de passe</label>
-    <input type="password" class="" name="password" required />
-
-    <label for="password">Confirmez votre mot de passe</label>
-    <input type="password" class="" name="password_confirm" required />
-
-    <input type="radio" class="" id="user" name="type" value="user" checked/>
-    <label for="user">Client</label>
-    <input type="radio" class="" id="admin" name="type" value="admin"/>
-    <label for="admin">Administrateur</label>
-
-    <button type="submit">Inscription</button>
+<form class="form" method="POST">
+  <input type="text" class="name formEntry"  name="firstname" placeholder="Prénom" required />
+  <input type="text" class="name formEntry" name="username" placeholder="Nom" required />
+  <input type="text" class="email formEntry"  name="email" placeholder="Email" required />
+  <input type="tel" class="tel formEntry"  name="tel" placeholder="Téléphone" required />
+  <input type="password" class="password formEntry"  name="password" placeholder="Mot de passe"  required/>
+  <div class="info">Minimum 8 caractères dont majuscule, minuscule, chiffre</div>
+  <input type="password" class="password formEntry"  name="password_confirm" placeholder="Confirmez votre mot de passe"  required />
+  <div class="info">Confirmez votre mot de passe</div>
+  <div class="btn-radio">
+  <label for="user">Client</label>
+  <input type="radio" class="" id="user" name="type" value="user" checked/>
+  <label for="admin">Administrateur</label>
+  <input type="radio" class="" id="admin" name="type" value="admin"/>
+  </div>
+  <button type="submit" class="submit">S'inscrire</button>
 </form>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require __DIR__ .'/../../layout-admin.php'; ?>
