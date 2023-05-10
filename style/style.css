@@ -34,12 +34,10 @@ body {
     line-height: 1.7em;
     font-weight: 500;
 }
-/*div {
-    width: 50%;
-    margin: auto;
-    justify-content: center;
-    
-}*/
+.center {
+    display: flex;
+    align-content: center;
+}
 h1, h2, h3, h4, p, button {
     text-align: center;
     padding-top: 20px;
@@ -82,6 +80,14 @@ option{
     font-family: 'Quicksand', sans-serif;
     font-size: 0.9rem;
 }
+li {
+    text-decoration: none;
+    padding: 5px 15px 5px 15px;
+}
+.errors {
+    background-color: rgb(202, 95, 95);
+    color: white;
+}
 /*form*/
 .form {
   background: #fff;
@@ -96,7 +102,7 @@ option{
   border-top: 5px solid #CDB775;
 }
 
-.name, .email, .tel, .password {
+.name, .email, .tel, .password, .select {
   background-color: #ebebeb;
 }
 
@@ -106,44 +112,104 @@ option{
   width: 380px;
   transition: ease 0.5s;
 }
+.message {
+    background-color: #ebebeb;
+    overflow: hidden;
+    height: 10rem;
+  }
+  
+.message:hover {
+    border-bottom: 5px solid #CDB775;
+    height: 12em;
+    width: 380px;
+    transition: ease 0.5s;
+  }
 
 .info {
     font-size: 0.7rem;
     text-align: center;
 }
+.btn-radio {
+    text-align: center;
+}
 
+legend {
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+.checkbox {
+    margin-left: 170px;
+}
+
+.form-checkbox {
+    display: block;
+    margin: 5px auto 5px auto;
+    min-width: 300px;
+}
 .formEntry {
-  display: block;
-  margin: 30px auto 5px auto;
-  min-width: 300px;
-  padding: 10px;
-  border-radius: 2px;
-  border: none;
-  transition: all 0.5s ease 0s;
+    display: block;
+    margin: 30px auto 5px auto;
+    min-width: 300px;
+    padding: 10px;
+    border-radius: 2px;
+    border: none;
+    transition: all 0.5s ease 0s;
 }
 
 .submit {
-  display: block;
-  margin: 10px auto;
-  min-width: 150px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #CDB775;
-  transition: all 0.5s ease 0s;
-  color: #CDB775;
-  background-color: white;
-  font-size: 15px;
-  font-weight: bold;
+    display: block;
+    margin: 10px auto;
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #CDB775;
+    transition: all 0.5s ease 0s;
+    color: #CDB775;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+.submit-inline {
+    display: inline;
+    margin: 10px auto;
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #CDB775;
+    transition: all 0.5s ease 0s;
+    color: #CDB775;
+    background-color: white;
+    font-size: 15px;
+    font-weight: bold;
 }
 
 .submit:hover {
-  box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
-  transform: translateY(-3px);
-  width: 200px;
-  color: #9999A1;
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 200px;
+    color: #9999A1;
 }
 /*fin form*/
-
+.btn-booking {
+    display: inline;
+    margin: 3px;
+    min-width: 60px;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid #CDB775;
+    transition: all 0.5s ease 0s;
+    color: #CDB775;
+    background-color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.btn-booking:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 80px;
+    color: #9999A1;
+}
 .btn > a {
     color: white;
     font-weight: normal;
