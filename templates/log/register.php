@@ -3,7 +3,15 @@
 <?php ob_start(); ?>
 
 <h1>S'inscrire</h1>
-
+<div  class="errors">
+<?php
+if (!empty($_POST))
+{
+  require_once __DIR__ .'/../../src/controllers/log/display.php';
+  insertDisplayErrors();
+}
+?>
+</div>
 <form class="form" method="POST">
   <input type="text" class="name formEntry"  name="firstname" placeholder="Prénom" required />
   <input type="text" class="name formEntry" name="username" placeholder="Nom" required />
