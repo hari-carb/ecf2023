@@ -1,9 +1,8 @@
 <?php
-require __DIR__ .'/display-courses-menu.php';
 
 function menu()
 {
-    require __DIR__ .'/display-menus.php';
+    require __DIR__ .'/display.php';
     require __DIR__ .'/../../../templates/menus-carte/menu.php';
     if (isset($_GET['id']) && !empty($_GET['id']))
     {

@@ -3,7 +3,7 @@
 function carte()
 {    
     require __DIR__ .'/../../../templates/menus-carte/carte.php';
-    require __DIR__ .'/display-courses-menu.php';
+    require __DIR__ .'/display.php';
 
     if (!empty($_POST))
     { 
@@ -33,5 +33,4 @@ function carte()
         displayCoursesByCat1('Fromage');
         displayCoursesByCat1('Dessert');
     }
-    require __DIR__ .'/display-courses.php';
 }
