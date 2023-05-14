@@ -1,18 +1,28 @@
 html {
     margin:0;
 }
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 15px;
+    color: #3F3F3E;
+    background-color: #fff;
+    line-height: 1.7em;
+    font-weight: 500;
+}
 .navbar {
     background-color: white;
     border-bottom: 1px solid #cccbcb;
+}
+.navbar-light .navbar-nav .nav-link {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1rem;
+    color: rgba(0,0,0,.7);
 }
 .nav {
     width: 100%;
     margin: auto;
     justify-content: center;
     padding: 10px;
-}
-.nav-link  {
-    font-family: 'Julius Sans One', sans-serif;
 }
 .navbar-nav, .navbar-collapse {
     align-items: end;
@@ -26,25 +36,19 @@ html {
     color: white;
     background-color: #CDB775;
 }
-body {
-    font-family: 'Quicksand', sans-serif;
-    font-size: 14px;
-    color: #666;
-    background-color: #fff;
-    line-height: 1.7em;
-    font-weight: 500;
-}
 .center {
     display: flex;
-    align-content: center;
+    flex-direction: column;
+    align-items: center;
 }
+
 h1, h2, h3, h4, p, button {
     text-align: center;
     padding-top: 20px;
 }
 h1 {
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding-bottom: 15px;
 }
 h2 {
@@ -67,7 +71,7 @@ p {
     font-size: 0.8rem;
 }
 a {
-    color: #666;
+    color: #3F3F3E;
     font-weight: bold;
 }
 a:hover {
@@ -76,7 +80,7 @@ a:hover {
     text-decoration: none;
 }
 option{
-    color: #666;
+    color: #3F3F3E;
     font-family: 'Quicksand', sans-serif;
     font-size: 0.9rem;
 }
@@ -191,25 +195,26 @@ legend {
     color: #9999A1;
 }
 /*fin form*/
-.btn-booking {
-    display: inline;
-    margin: 3px;
-    min-width: 60px;
-    padding: 3px;
-    border-radius: 5px;
-    border: 1px solid #CDB775;
-    transition: all 0.5s ease 0s;
+
+.btn-booking input[type="radio"] {
+    appearance: button;
+}
+.btn-booking label {
+    display: inline-block;
     color: #CDB775;
     background-color: white;
-    font-size: 1rem;
+    border: 1px solid #CDB775;
+    font-size: 15px;
     font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
 }
-.btn-booking:hover {
+/*.btn-booking:hover {
     box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
     transform: translateY(-3px);
     width: 80px;
     color: #9999A1;
-}
+}*/
 .btn > a {
     color: white;
     font-weight: normal;
@@ -217,4 +222,12 @@ legend {
 }
 .table {
     font-size: 0.8rem
+}
+
+.datepicker {
+    margin-bottom: 150px;
+}
+
+.carousel slide {
+    max-width: 500px;
 }

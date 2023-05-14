@@ -5,8 +5,7 @@
 <?php ob_start(); ?>
 
 <h1>Gestion de la carte</h1>
-
-<h2><a href="add-course.php">Ajouter un plat</a></h2>
+<button class="btn btn-primary"><a href="add-course.php">Ajouter un plat</a></button>
 <h2>Liste des plats</h2>
 <?php $courses = 'SELECT * FROM  plats_by_cat1';?>
 <table name="liste-admin-courses" class="table table-responsive table-sm table-striped table-bordered vertical-align-middle">

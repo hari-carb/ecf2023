@@ -37,7 +37,7 @@ if (!empty($_POST))
     <label for="admin">Administrateur</label>
     <input type="radio" class="" id="admin" name="type" value="admin" />
 
-    <button type="submit">Modifier le compte</button>
+    <button type="submit" class="btn btn-primary btn-sm">Modifier le compte</button>
 </form>
 <?php $content = ob_get_clean(); ?>
 
