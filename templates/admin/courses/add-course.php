@@ -3,7 +3,19 @@
 <?php ob_start(); ?>
 
 <h1>Ajouter un plat</h1>
-
+<div  class="errors">
+<?php
+if (!empty($_POST))
+{
+      print '<ul>';
+      foreach ($errors as $error)
+      {
+          print '<li>' .$error. '</li>';
+      }
+      print '</ul>';
+}
+?>
+</div>
 <form class="form" action="" method="POST">
   <input type="text" class="name formEntry" name="title" placeholder="Titre du plat" required />
   <textarea rows="10" cols="55" class="message formEntry" name="description" placeholder="Description du plat"></textarea>

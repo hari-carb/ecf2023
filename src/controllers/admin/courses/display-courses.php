@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function adminDisplayCoursesByCategories($type)
 {
     require __DIR__ .'/../../../model/db.php';

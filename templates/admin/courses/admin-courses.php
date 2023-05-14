@@ -1,12 +1,11 @@
  <?php $title = "Restaurant Le Quai Antique - Administration - Carte"; ?>
 
-<?php require __DIR__ .'/../../../src/controllers/admin/courses/display-courses.php';?>
-
 <?php ob_start(); ?>
-
 <h1>Gestion de la carte</h1>
-<button class="btn btn-primary"><a href="add-course.php">Ajouter un plat</a></button>
-<h2>Liste des plats</h2>
+<div class="container container-md container-lg center">
+    <button class="btn btn-primary"><a href="add-course.php">Ajouter un plat</a></button>
+    <h2>Liste des plats</h2>
+</div>
 <?php $courses = 'SELECT * FROM  plats_by_cat1';?>
 <table name="liste-admin-courses" class="table table-responsive table-sm table-striped table-bordered vertical-align-middle">
     <thead>
