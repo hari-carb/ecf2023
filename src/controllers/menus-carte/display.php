@@ -3,7 +3,7 @@
 function displayCoursesByMenu($menuId)
 {
     require __DIR__ .'/../../model/db.php';
-    $courses = "SELECT title, description FROM menu_par_plats_categories WHERE menu_id='$menuId'";
+    $courses = "SELECT title, description FROM menu_plats_categories WHERE menu_id='$menuId'";
     foreach ($pdo->query($courses) as $course)
     {
         $displayCourseByMenu = print '<h3>' . $course->title . '</h3>

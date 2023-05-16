@@ -1,5 +1,4 @@
 <?php
-
 function menus()
 {
     //Affiche les différents menus et un lien vers la carte

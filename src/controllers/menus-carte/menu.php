@@ -1,7 +1,7 @@
 <?php
-
 function menu()
 {
+    // Affiche les plats d'un menu
     require __DIR__ .'/display.php';
     require __DIR__ .'/../../../templates/menus-carte/menu.php';
     if (isset($_GET['id']) && !empty($_GET['id']))
