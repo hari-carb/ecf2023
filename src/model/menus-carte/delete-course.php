@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ .'/../db.php';
 $getIdCourse = $_GET['id'];
 $courses = $pdo->prepare('SELECT * FROM plats WHERE id = ?');

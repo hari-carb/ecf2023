@@ -1,9 +1,9 @@
 <?php
-require __DIR__ .'/display-courses.php';
+require __DIR__ .'/../display-admin.php';
 
 if (!empty($_POST))
 {
-  require_once __DIR__ .'/display-courses.php';
+  require_once __DIR__ .'/../display-admin.php';
   $errors = array();
   if (!checkPostPrice($_POST['price']))
   {

@@ -1,4 +1,9 @@
 <?php
+//Vérification qu'une session n'est pas déjà ouverte
+if (session_status() == PHP_SESSION_NONE)
+{
+   session_start();
+}
 
 if (isset($_GET['id']) && !empty($_GET['id']))
 {
@@ -6,11 +11,11 @@ if (isset($_GET['id']) && !empty($_GET['id']))
 
     if (!empty($_POST))
     {
-        require_once __DIR__ .'/display-courses.php';
+        require_once __DIR__ .'/../display-admin.php';
         $errors = array();
     if (!checkPostPrice($_POST['price']))
     {
-        $errors['price'] = "Vous devez saisir un nombre entier";
+        $errors['price'] = "Vous devez saisir un nombre entier dans le champ Prix";
     }
         if (empty($errors))
         {

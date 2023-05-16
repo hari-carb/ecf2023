@@ -1,12 +1,12 @@
 <?php
-
 function carte()
-{    
+{
     require __DIR__ .'/../../../templates/menus-carte/carte.php';
     require __DIR__ .'/display.php';
 
     if (!empty($_POST))
     { 
+        // Affiche les plats triés par catégories selon la sélection
         switch ($_POST['selectCat'])
         {
         case 1: displayCoursesByCat1('Entrée');
@@ -28,6 +28,7 @@ function carte()
         }
     }else
     {
+        // Affiche les plats de la catégorie 1
         displayCoursesByCat1('Entrée');
         displayCoursesByCat1('Plat');
         displayCoursesByCat1('Fromage');

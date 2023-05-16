@@ -36,23 +36,6 @@ if (!empty($_POST))
     <option value="3">Viande</option>
     <option value="4">Fruits de mer</option>
   </select>
-  <legend class="btn-radio">Ajouter à un menu</legend>
-  <div class="form-checkbox">
-    <input class="checkbox" type="checkbox" id="menu-dej" name="menus[]"value="1">
-    <label for="menu-dej">Menu Déjeuner</label>
-  </div>
-  <div class="form-checkbox">
-    <input class="checkbox" type="checkbox" id="menu-duo" name="menus[]"value="2">
-    <label for="menu-duo">Menu Duo</label>
-  </div>
-  <div class="form-checkbox">
-    <input class="checkbox" type="checkbox" id="vege" name="menus[]"value="3">
-    <label for="vege">Menu Végétarien</label>
-  </div>
-  <div class="form-checkbox">
-    <input class="checkbox" type="checkbox" id="seafish" name="menus[]"value="4">
-    <label for="seafish">Menu Dégustation</label>
-  </div>
   <button class="submit" type="submit">Ajouter le plat</button>
 </form>
 <?php $content = ob_get_clean(); ?>
