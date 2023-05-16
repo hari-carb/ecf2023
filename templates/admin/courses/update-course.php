@@ -1,10 +1,21 @@
-
 <?php $title = "Restaurant Le Quai Antique - Administration - Carte"; ?>
 
 <?php ob_start(); ?>
 
 <h1>Modifier un plat</h1>
-
+<div  class="errors">
+<?php
+if (!empty($_POST))
+{
+      print '<ul>';
+      foreach ($errors as $error)
+      {
+          print '<li>' .$error. '</li>';
+      }
+      print '</ul>';
+}
+?>
+</div>
 <form class="form" action="" method="POST">
   <input type="text" class="name formEntry" name="title" value="<?=$course->title;?>" required />
   <textarea rows="10" cols="55" class="message formEntry" name="description" value="<?=$course->description;?>"></textarea>

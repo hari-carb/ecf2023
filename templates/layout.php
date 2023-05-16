@@ -4,8 +4,7 @@ if (session_status() == PHP_SESSION_NONE)
 {
   session_start();
 }
- ?>
-<?php require __DIR__ .'/../src/controllers/flashMessage.php'; ?>
+require __DIR__ .'/../src/controllers/flashMessage.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,6 +14,8 @@ if (session_status() == PHP_SESSION_NONE)
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="style/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="style/style.css">
     <title><?= $title ?></title>
 </head>
 <body>
@@ -31,6 +32,7 @@ if (session_status() == PHP_SESSION_NONE)
                 <a class="nav-item nav-link" href="menus-carte.php">Carte & Menus <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="booking.php">Réserver</a>
                 <?php if (isset($_SESSION['authUser'])): ?>
+                    <a class="nav-item nav-link" href="users.php">Espace Client</a>
                     <a class="nav-item nav-link" href="logout.php">Se déconnecter</a>
                 <?php elseif (isset($_SESSION['authAdmin'])): ?>
                     <a class="nav-item nav-link" href="admin.php">Espace Administration</a>
@@ -48,8 +50,9 @@ if (session_status() == PHP_SESSION_NONE)
 <div class="content container container-md container-lg">
     <?= $content ?>
 </div>
-    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="script/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>

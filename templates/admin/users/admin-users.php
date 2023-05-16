@@ -1,6 +1,5 @@
 <?php $title = "Restaurant Le Quai Antique - Administration - Utilisateurs"; ?>
 
-
 <?php ob_start(); ?>
 
 <h1>Gestion des utilisateurs</h1>

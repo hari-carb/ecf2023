@@ -1,5 +1,9 @@
 <?php
-
+//Vérification qu'une session n'est pas déjà ouverte
+if (session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
 function displayUsers($users)
 {
     require_once __DIR__ .'/../../model/db.php';

@@ -1,4 +1,10 @@
 <?php
+//Vérification qu'une session n'est pas déjà ouverte
+if (session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
+
 if (isset($_GET['id']) && !empty($_GET['id']))
 {
     require_once __DIR__ .'/../../../model/log/getIdUser.php';

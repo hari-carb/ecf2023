@@ -1,5 +1,4 @@
 <?php
-
 function register()
 {
     if (!empty($_POST))
@@ -14,6 +13,7 @@ function register()
             $_SESSION['flash']['success'] = 'Votre inscription a bien été validée';
             if ($_SESSION['authAdmin'])
             {
+                //Si l'inscription est validée depuis l'espace admin
                 header('Location: admin-users.php');
             }else
             {

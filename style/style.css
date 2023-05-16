@@ -223,6 +223,10 @@ legend {
 .table {
     font-size: 0.8rem
 }
+.td-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
 
 .datepicker {
     margin-bottom: 150px;

@@ -1,6 +1,9 @@
 <?php
-session_start();
-
+//Vérification qu'une session n'est pas déjà ouverte
+if (session_status() == PHP_SESSION_NONE)
+{
+  session_start();
+}
 function checkPostName($name)
 {
     if (empty($name) || !preg_match('/^[a-zA-ZÀ-ú\s_]+$/', $name))
@@ -114,4 +117,32 @@ function checkUpdateErrors()
         }
         return $errors;
     }
+}
+function checkBookingErrors()
+{
+    if (!empty($_POST))
+    {
+        $errors = array();
+        if (!checkPostName($_POST['username']))
+        {
+            $errors['username'] = "Seuls les lettres et les espaces sont autorisés dans le champ Nom.";
+        }
+        if (!checkPostName($_POST['firstname']))
+        {
+            $errors['firstname'] = "Seuls les lettres et les espaces sont autorisés dans le champ Prénom.";
+        }
+        if (!checkPostEmail($_POST['email']))
+        {
+            $errors['email'] = "Votre email n'est pas valide";
+        }
+        if (!checkPostTel($_POST['tel']))
+        {
+            $errors['tel'] = "Votre téléphone n'est pas valide";
+        }
+        if (!checkPostAllergies($_POST['allergies']))
+        {
+            $errors['allergies'] = "Seuls les lettres et les espaces sont autorisés dans le champ Allergies.";
+        }
+    }
+    return $errors;
 }
