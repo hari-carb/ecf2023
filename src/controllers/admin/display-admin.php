@@ -19,6 +19,8 @@ function displayAdminUsers()
             <td>'. $user->firstname.'</td>
             <td class="text-break">'. $user->email.'</td>
             <td>'. $user->tel.'</td>
+            <td>'. $user->nbpers.'</td>
+            <td>'. $user->allergies.'</td>
             <td><button type="button" class="btn btn-primary btn-sm"><a href="update-user.php?id='. $user->id. '">Modifier</a></button></td>
             <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-user.php?id='. $user->id. '">Supprimer</a></button></td>
         </tr>';
@@ -124,44 +126,84 @@ function dateNextWeek()
    $week = date('Y-m-d', $week1);
    return $week;
 }
-
-function displayAdminBooking()
+function dateNextMonth()
 {
-    require __DIR__ .'/../../model/db.php';
-    $reservations = "SELECT * FROM reservation WHERE date >= '$now' AND date <='$week' ORDER BY date";
-    foreach ($pdo->query($reservations) as $resa)
-    {
-        $displayResa = print'
-        <tr>
-            <td>'. $resa->date.'</td>
-            <td>'. $resa->time.'</td>
-            <td>'. $resa->nbpers.'</td>
-            <td>'. $resa->name.'</td>
-            <td>'. $resa->firstname.'</td>
-            <td class="text-break">'. $resa->email.'</td>
-            <td>'. $resa->tel.'</td>
-            <td>'. $resa->allergies. '</td>
-        </tr>';
-    }
-       return $displayResa;
+   $month1 = mktime(0, 0, 0, date("m")+1, date("d"), date("Y"));
+   $month = date('Y-m-d', $month1);
+   return $month;
 }
-function displayAdminBookingNextYear()
+function dateNextYear()
 {
-    require __DIR__ .'/../../model/db.php';
-    $reservations = "SELECT * FROM reservation WHERE date >= CURDATE() ORDER BY date";
-    foreach ($pdo->query($reservations) as $resa)
-    {
-        $displayResa = print'
+   $year1 = mktime(0, 0, 0, date("m"), date("d"), date("Y")+1);
+   $year = date('Y-m-d', $year1);
+   return $year;
+}
+function datePastDay()
+{
+   $pDay1 = mktime(0, 0, 0, date("m"), date("d")-1, date("Y"));
+   $pDay = date('Y-m-d', $pDay1);
+   return $pDay;
+}
+function datePastWeek()
+{
+   $pWeek1 = mktime(0, 0, 0, date("m"), date("d")-7, date("Y"));
+   $pWeek = date('Y-m-d', $pWeek1);
+   return $pWeek;
+}
+function datePastMonth()
+{
+   $pMonth1 = mktime(0, 0, 0, date("m")-1, date("d"), date("Y"));
+   $pMonth = date('Y-m-d', $pMonth1);
+   return $pMonth;
+}
+function datePastYear()
+{
+   $pYear1 = mktime(0, 0, 0, date("m")-1, date("d"), date("Y"));
+   $pYear = date('Y-m-d', $pYear1);
+   return $pYear;
+}
+function displayAdminBooking($fromDate, $toDate)
+{
+    echo '<div class="container container-md container-lg center">
+    <table name="liste-admin-booking" class="table table-responsive table-striped table-bordered vertical-align-middle">
+    <thead>
         <tr>
-            <td>'. $resa->date.'</td>
-            <td>'. $resa->time.'</td>
-            <td>'. $resa->nbpers.'</td>
-            <td>'. $resa->name.'</td>
-            <td>'. $resa->firstname.'</td>
-            <td class="text-break">'. $resa->email.'</td>
-            <td>'. $resa->tel.'</td>
-            <td>'. $resa->allergies. '</td>
-        </tr>';
-    }
-       return $displayResa;
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Nb pers</th>
+            <th>Nom</th>
+            <th>Prénom</th>
+            <th>Email</th>
+            <th>Téléphone</th>
+            <th>Allergies</th>
+        </tr>
+    </thead>
+    <tbody>';
+    require __DIR__ .'/../../model/db.php';
+    $reservations = "SELECT * FROM booking WHERE date >='$fromDate' AND date <='$toDate' ORDER BY date";
+    if ($pdo->query($reservations)->rowCount() > 0)
+    {
+        foreach ($pdo->query($reservations) as $resa)
+        {
+            $displayResa = print'
+            <tr>
+                <td>'. $resa->date.'</td>
+                <td>'. $resa->time.'</td>
+                <td>'. $resa->nbpers.'</td>
+                <td>'. $resa->name.'</td>
+                <td>'. $resa->firstname.'</td>
+                <td class="text-break">'. $resa->email.'</td>
+                <td>'. $resa->tel.'</td>
+                <td>'. $resa->allergies. '</td>
+            </tr>';
+        }
+    }else
+        {
+            $displayResa = print'
+            <tr>
+                <td colspan= "8">Aucune réservation pour cette période</td>
+            </tr>';
+        }
+    echo '</tbody></table></div>';
+    return $displayResa;
 }

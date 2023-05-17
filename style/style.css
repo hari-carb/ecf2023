@@ -112,8 +112,7 @@ li {
 
 .name:hover,.email:hover, .tel:hover, .password:hover {
   border-bottom: 5px solid #CDB775;
-  height: 30px;
-  width: 380px;
+  width: 350px;
   transition: ease 0.5s;
 }
 .message {
@@ -125,7 +124,7 @@ li {
 .message:hover {
     border-bottom: 5px solid #CDB775;
     height: 12em;
-    width: 380px;
+    width: 350px;
     transition: ease 0.5s;
   }
 
@@ -147,20 +146,38 @@ legend {
 }
 
 .form-checkbox {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin: 5px auto 5px auto;
+    min-width: 250px;
+}
+.formLabel {
+    font-size: 1.2rem;
+    display: block;
+    margin: 10px auto 3px auto;
     min-width: 300px;
+    padding-top: 10px;
+    padding-bottom: 0;
+    text-align: center;
 }
 .formEntry {
     display: block;
-    margin: 30px auto 5px auto;
+    margin: 3px auto 5px auto;
     min-width: 300px;
     padding: 10px;
     border-radius: 2px;
     border: none;
     transition: all 0.5s ease 0s;
 }
-
+.number {
+    display: block;
+    margin: 3px auto 5px auto;
+    max-width: 70px;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1 solid #CDB775;
+}
 .submit {
     display: block;
     margin: 10px auto;
@@ -174,11 +191,32 @@ legend {
     font-size: 15px;
     font-weight: bold;
 }
-.submit-inline {
-    display: inline;
-    margin: 10px auto;
-    min-width: 150px;
-    padding: 10px;
+.submit:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 200px;
+    color: #9999A1;
+}
+.inline {
+    display: flex;
+
+/*fin form*/
+.btn-booking {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px auto 5px auto;
+    min-width: 200px;
+}
+.btn-booking input[type="radio"] {
+    display: none;
+}
+.btn-booking label {
+    display: flex;
+    margin: 3px;
+    min-width: 30px;
+    padding: 5px;
+    text-align: center;
     border-radius: 5px;
     border: 1px solid #CDB775;
     transition: all 0.5s ease 0s;
@@ -187,34 +225,17 @@ legend {
     font-size: 15px;
     font-weight: bold;
 }
-
-.submit:hover {
+.btn-booking input[type="radio"]:checked + label {
+    background-color: #CDB775;
+    color: white;
+}
+.btn-booking label:hover {
     box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
     transform: translateY(-3px);
-    width: 200px;
+    min-width: 40px;
     color: #9999A1;
-}
-/*fin form*/
+  }
 
-.btn-booking input[type="radio"] {
-    appearance: button;
-}
-.btn-booking label {
-    display: inline-block;
-    color: #CDB775;
-    background-color: white;
-    border: 1px solid #CDB775;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-}
-/*.btn-booking:hover {
-    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
-    transform: translateY(-3px);
-    width: 80px;
-    color: #9999A1;
-}*/
 .btn > a {
     color: white;
     font-weight: normal;
@@ -227,11 +248,51 @@ legend {
     font-size: 1.2rem;
     font-weight: bold;
 }
-
+/*date-picker*/
 .datepicker {
-    margin-bottom: 150px;
+    background-color: #ebebeb;
+    border: 0;
+    max-width: 150px;
 }
-
+.ui-widget.ui-widget-content {
+    background-color: #fff;
+    border: 1px solid #CDB775;
+    }
+    
+    .ui-datepicker-header {
+    background-color: black;
+    }
+    
+    .ui-datepicker-title {
+        color: white;
+    }
+    .ui-datepicker-prev, .ui-datepicker-next {
+        background-color: #CDB775;
+    }
+    .ui-widget-content .ui-state-default {
+        border: 0px;
+        text-align: center;
+        background-color: #fff;
+        font-weight: normal;
+        color: #3F3F3E;
+    }
+    .ui-state-highlight {
+        background-color: #CDB775 !important;
+    }
+    .ui-widget-content .ui-state-default:hover {
+        border: 0px;
+        text-align: center;
+        background-color: #000;
+        font-weight: normal;
+        color: #fff;
+    }
+    
+    .ui-widget-content .ui-state-active {
+        border: 0px;
+        background-color: #CDB775;
+        color: #fff;
+    }
+    
 .carousel slide {
     max-width: 500px;
 }
