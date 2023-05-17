@@ -17,6 +17,8 @@
                 <th>Prénom</th>
                 <th>Email</th>
                 <th>Téléphone</th>
+                <th>Nb pers</th>
+                <th>Allergies</th>
                 <th colspan="2"></th>
             </tr>
         </thead>
