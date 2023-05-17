@@ -14,7 +14,7 @@ function displayUsers($users)
     return $text;
 }
 // pour register et login
-function insertDisplayErrors()
+function displayPostErrors()
 {
     require_once __DIR__ .'/check-post-errors.php';
     $checkErrors = checkPostErrors();
@@ -29,3 +29,57 @@ function insertDisplayErrors()
         print '</ul>';
      }
 }
+function displayUpdateErrors()
+
+{
+    require_once __DIR__ .'/check-post-errors.php';
+    $checkErrors = checkUpdateErrors();
+    //Afficher les erreurs
+    if (!empty($checkErrors))
+    {
+        print '<ul>';
+        foreach ($checkErrors as $error)
+        {
+            print '<li>' .$error. '</li>';
+        }
+        print '</ul>';
+     }
+}
+function displayBookingErrors()
+
+{
+    require_once __DIR__ .'/check-post-errors.php';
+    $checkErrors = checkBookingErrors();
+    //Afficher les erreurs
+    if (!empty($checkErrors))
+    {
+        print '<ul>';
+        foreach ($checkErrors as $error)
+        {
+            print '<li>' .$error. '</li>';
+        }
+        print '</ul>';
+     }
+}
+// checked le button radio / à la bdd
+function isChecked($dbValue, $htmlValue)
+{
+    if ($dbValue == $htmlValue)
+    {
+      echo 'checked="checked"';
+    }else
+    {
+      echo '';
+    }
+  }
+  // checked le button radio / à la bdd
+function isSelected($dbValue, $htmlValue)
+{
+    if ($dbValue == $htmlValue)
+    {
+      echo 'selected="selected"';
+    }else
+    {
+      echo '';
+    }
+  }

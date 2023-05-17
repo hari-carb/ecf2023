@@ -16,10 +16,13 @@ if (!empty($_POST))
 }
 ?>
 </div>
-<form class="form" action="" method="POST">
+<form class="form" id="form" action="" method="POST">
+  <label class="formLabel" for="title">Titre du plat</label>
   <input type="text" class="name formEntry" name="title" placeholder="Titre du plat" required />
-  <textarea rows="10" cols="55" class="message formEntry" name="description" placeholder="Description du plat"></textarea>
-  <input type="text" class="tel formEntry" name="price" placeholder="Prix du plat" required />
+  <label class="formLabel" for="description">Description</label>
+  <textarea class="message formEntry" name="description" placeholder="Description du plat"></textarea>
+  <label class="formLabel" for="price">Prix du plat</label>
+  <input type="number" id="price" class="number"  name="price" placeholder="0" maxlength="3" required />
   <legend class="btn-radio">Entrée, plat, fromage ou Dessert</legend>
   <select class=" select form-checkbox" name="cat1">
     <option value="">Sélectionner</option>

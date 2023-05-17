@@ -4,7 +4,7 @@ if (session_status() == PHP_SESSION_NONE)
 {
    session_start();
 }
-
+require_once __DIR__ .'/../../log/display.php';
 if (isset($_GET['id']) && !empty($_GET['id']))
 {
     require_once __DIR__ .'/../../../model/menus-carte/getIdCourse.php';

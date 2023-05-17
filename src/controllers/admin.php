@@ -8,6 +8,5 @@ if (!isset($_SESSION['authAdmin']))
 }
 function admin()
 {
-  require __DIR__ .'/admin/display-admin.php';
-  require __DIR__ .'/../../templates/admin.php';
+    require __DIR__ .'/../../templates/admin.php';
 }

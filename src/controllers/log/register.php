@@ -10,14 +10,24 @@ function register()
         if (empty($errors))
         {
             require_once __DIR__ .'/../../model/log/register.php';
-            $_SESSION['flash']['success'] = 'Votre inscription a bien été validée';
-            if ($_SESSION['authAdmin'])
-            {
-                //Si l'inscription est validée depuis l'espace admin
-                header('Location: admin-users.php');
-            }else
-            {
-                header('Location: login.php');
+            if ($registerUser)
+            {    // si la requête a fonctionné
+                $registerUser = null;
+                if ($_SESSION['authAdmin'])
+                {
+                    //Si l'inscription est validée depuis l'espace admin
+                    $_SESSION['flash']['success'] = 'L\'inscription a bien été validée';
+                    header('Location: admin-users.php');
+                    exit();
+                }else
+                {
+                    $_SESSION['flash']['success'] = 'Votre inscription a bien été validée';
+                    header('Location: login.php');
+                    exit();
+                }
+             }else {
+                    $_SESSION['flash']['danger'] = 'Un problème s\'est produit. L\'inscription n\'a pas été validée';
+                    exit();
             }
         }
     }

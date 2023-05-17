@@ -11,7 +11,7 @@ if (isset($_GET['id']) && !empty($_GET['id']))
         header('Location: admin-users.php');
     }else
     {
-            $_SESSION['flash']['danger'] = 'Aucun membre n\'a été trouvé';
+        $_SESSION['flash']['danger'] = 'Aucun membre n\'a été trouvé';
     }
 }else
 {

@@ -17,8 +17,10 @@ if (!empty($_POST))
 ?>
 </div>
 <form class="form" action="" method="POST">
-  <input type="text" class="name formEntry" name="name" value="<?=$menu->name; ?>" required />
-  <input type="text" class="tel formEntry" name="price" value="<?=$menu->price; ?>" required />
+  <label class="formLabel" for="name">Nom du menu</label>
+  <input type="text"  id="name" class="name formEntry" name="name" value="<?=$menu->name; ?>" required />
+  <label class="formLabel" for="price">Prix du menu</label>
+  <input type="number"  id="name" class="number" name="price" value="<?=$menu->price; ?>" required />
   <button class="submit" type="submit">Modifier le menu</button>
 </form>
 <?php $content = ob_get_clean(); ?>
