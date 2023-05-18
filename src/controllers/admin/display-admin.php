@@ -181,7 +181,7 @@ function displayAdminBooking($fromDate, $toDate)
     <tbody>';
     require __DIR__ .'/../../model/db.php';
     $reservations = "SELECT * FROM booking WHERE date >='$fromDate' AND date <='$toDate' ORDER BY date";
-    if ($pdo->query($reservations)->rowCount() > 0)
+    if (($pdo->query($reservations))->rowCount() > 0)
     {
         foreach ($pdo->query($reservations) as $resa)
         {
@@ -206,4 +206,34 @@ function displayAdminBooking($fromDate, $toDate)
         }
     echo '</tbody></table></div>';
     return $displayResa;
+}
+
+function displayImages()
+{
+    $tableau = array();
+    $dossier = opendir('mini/');
+    while ($fichier = readdir($dossier)) {
+        if ($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
+        {
+            $tableau[] = $fichier;
+        }
+    }
+    closedir($dossier);
+  
+    $nbpics = count($tableau);
+    if ($nbpics != 0)
+    {
+        echo '<div class="container text-center">
+        <div class="row">';
+        for ($i=0; $i<$nbpics; $i++)
+        {
+            echo '
+            <div class="col">
+                <a href="pics/' , $tableau[$i] , '">
+                    <img src="mini/' , $tableau[$i] , '" alt="Image" />
+                </a>
+            </div>';
+        }
+        echo '</div></div>';
+    }else echo 'Aucune image à afficher';
 }
