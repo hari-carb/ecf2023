@@ -169,7 +169,8 @@ function displayAdminBooking($fromDate, $toDate)
     <thead>
         <tr>
             <th>Date</th>
-            <th>Heure</th>
+            <th>Déjeuner</th>
+            <th>Diner</th>
             <th>Nb pers</th>
             <th>Nom</th>
             <th>Prénom</th>
@@ -188,7 +189,8 @@ function displayAdminBooking($fromDate, $toDate)
             $displayResa = print'
             <tr>
                 <td>'. $resa->date.'</td>
-                <td>'. $resa->time.'</td>
+                <td>'. $resa->lunch.'</td>
+                <td>'. $resa->diner.'</td>
                 <td>'. $resa->nbpers.'</td>
                 <td>'. $resa->name.'</td>
                 <td>'. $resa->firstname.'</td>
@@ -210,30 +212,33 @@ function displayAdminBooking($fromDate, $toDate)
 
 function displayImages()
 {
-    $tableau = array();
-    $dossier = opendir('mini/');
-    while ($fichier = readdir($dossier)) {
-        if ($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
-        {
-            $tableau[] = $fichier;
-        }
-    }
-    closedir($dossier);
-  
-    $nbpics = count($tableau);
-    if ($nbpics != 0)
+    require __DIR__ .'/../../model/db.php';
+    $photos = "SELECT * FROM photos ORDER BY id DESC";
+    if ($pdo->query($photos)->rowCount() > 0)
     {
         echo '<div class="container text-center">
-        <div class="row">';
-        for ($i=0; $i<$nbpics; $i++)
+        <form method="POST" action="">
+                <div class="row">';
+        foreach ($pdo->query($photos) as $photo)
         {
             echo '
             <div class="col">
-                <a href="pics/' , $tableau[$i] , '">
-                    <img src="mini/' , $tableau[$i] , '" alt="Image" />
+            <p>'. $photo->description .'</p>
+                <a href="images/'. $photo->name .'">
+                    <img src="mini/'. $photo->name .'" alt="Image" />
                 </a>
+                <div>
+                    <label for="add-slider">Ajouter au slider</label>
+                    <input type="checkbox" name="add-slider[]" id="add-slider" value="'.$photo->id.'">
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-sm"><a href="delete-image.php?id='. $photo->id .'">Supprimer l\'image</a></button>
+                </div>
             </div>';
         }
-        echo '</div></div>';
+        echo '<div class="col">
+            <button type="submit" name="btn_upload" class="submit">Valider</button>
+        </div>
+        </div></form></div>';
     }else echo 'Aucune image à afficher';
 }

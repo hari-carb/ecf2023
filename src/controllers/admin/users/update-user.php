@@ -17,14 +17,19 @@ if (isset($_GET['id']) && !empty($_GET['id']))
             require_once __DIR__ .'/../../../model/log/update-user.php';
             $_SESSION['flash']['success'] = 'L\'utilisateur a bien été modifié';
             header('Location: admin-users.php');
+            exit();
         }else
         {
             $_SESSION['flash']['danger'] = 'l\'utilisateur n\'a pas été modifié';
+            header('Location: admin-users.php');
+            exit();
         }
     }
 }else
 {
     $_SESSION['flash']['danger'] = 'L\'identifiant n\'a pas été récupéré';
+    header('Location: admin-users.php');
+    exit();
 }
 
 require __DIR__ .'/../../../../templates/admin/users/update-user.php';

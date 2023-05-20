@@ -69,19 +69,25 @@ function checkBookingErrors()
 {
     if (!empty($_POST))
     {
-        $updateErrors = array();
+        $bookErrors = array();
         $mErrors = checkPostMainErrors();
 
         if (!checkPostEmail($_POST['email']))
         {
-            $updateErrors['email'] = "Votre email n'est pas valide";
+            $bookErrors['email'] = "Votre email n'est pas valide";
         }
         if (!checkPostAllergies($_POST['allergies']))
         {
-            $updateErrors['allergies'] = "Pas de caractères spéciaux.";
+            $bookErrors['allergies'] = "Pas de caractères spéciaux.";
         }
-        $errors = array_merge($mErrors, $updateErrors);
-        return $errors;
+        if (!empty($mErrors))
+        {
+            $errors = array_merge($mErrors, $bookErrors);
+        }else
+        {
+            $errors=$bookErrors;
+        }
+            return $errors;
         }
 }
 function checkPostErrors()
