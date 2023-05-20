@@ -35,7 +35,7 @@ if (isset($_POST["btn_upload"]) == "Upload")
     }
 	if (!empty($imageName) || !preg_match('/^[a-zA-ZÀ-ú\s_]+$/', $imageName) && !empty($imageDesc) || !preg_match('/^[a-zA-ZÀ-ú\s_]+$/', $imageDesc))
     {
-		$req = $pdo->prepare("INSERT INTO photos(name, description, path) VALUES('$imageName', '$imageDesc', '$filePath')");
+		$req = $pdo->prepare("INSERT INTO photos(name, description, path) VALUES('$fileName', '$imageDesc', '$filePath')");
 		$req->execute();
 		$result = $req->fetch();
 		move_uploaded_file($fileTmp, $filePath);
@@ -63,10 +63,10 @@ if (isset($_POST["btn_upload"]) == "Upload")
 		imagecopyresampled($im, $src, 0, 0, 0, 0, $ratio, round($tableau[1]*($ratio/$tableau[0])), $tableau[0], $tableau[1]);
 		}
 		//création image dans le dossier mini
-		imagejpeg($im, $dir_mini. '/' .$imageName. '.jpeg');
+		imagejpeg($im, $dir_mini. '/' .$fileName);
 	}elseif ($tableau[2] == 3)
 	{
-		$src = imagecreatefrompng('images/'. $imageName .'.png');
+		$src = imagecreatefrompng('images/'. $fileName);
 		if ($tableau[0] > $tableau[1])
 		{
 			$im = imagecreatetruecolor(round(($ratio/$tableau[1])*$tableau[0]), $ratio);
@@ -76,6 +76,6 @@ if (isset($_POST["btn_upload"]) == "Upload")
 			$im = imagecreatetruecolor($ratio, round(($ratio/$tableau[0])*$tableau[1]));
 			imagecopyresampled($im, $src, 0, 0, 0, 0, $ratio, round($tableau[1]*($ratio/$tableau[0])), $tableau[0], $tableau[1]);
 		}
-		imagejpeg($im, $dir_mini. '/' .$imageName. '.png');
+		imagejpeg($im, $dir_mini. '/' .$fileName);
 	}
 }

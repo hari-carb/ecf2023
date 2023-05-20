@@ -6,7 +6,7 @@
 
 <div>
     <h3>Les réservations</h3>
-    <a href="src/controllers/admin/booking/booking.php">Voir les réservations</a>
+    <a href="src/controllers/admin/booking/admin-booking.php">Voir les réservations</a>
 
     <h3>Gérer les utilisateurs et administrateurs</h3>
     <a href="src/controllers/admin/users/admin-users.php">Ajouter, modifier ou supprimer</a>
@@ -16,6 +16,9 @@
     
     <h3>Gérer les menus</h3>
     <a href="src/controllers/admin/menus/admin-menus.php">Ajouter, modifier ou supprimer</a>
+</div>
+<h3>Gérer les images</h3>
+    <a href="src/controllers/admin/images/admin-images.php">Ajouter, modifier ou supprimer</a>
 </div>
 
 <?php $content = ob_get_clean(); ?>
