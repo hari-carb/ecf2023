@@ -169,8 +169,7 @@ function displayAdminBooking($fromDate, $toDate)
     <thead>
         <tr>
             <th>Date</th>
-            <th>Déjeuner</th>
-            <th>Diner</th>
+            <th>Service</th>
             <th>Nb pers</th>
             <th>Nom</th>
             <th>Prénom</th>
@@ -189,8 +188,7 @@ function displayAdminBooking($fromDate, $toDate)
             $displayResa = print'
             <tr>
                 <td>'. $resa->date.'</td>
-                <td>'. $resa->lunch.'</td>
-                <td>'. $resa->diner.'</td>
+                <td>'. $resa->time.'</td>
                 <td>'. $resa->nbpers.'</td>
                 <td>'. $resa->name.'</td>
                 <td>'. $resa->firstname.'</td>
@@ -209,7 +207,7 @@ function displayAdminBooking($fromDate, $toDate)
     echo '</tbody></table></div>';
     return $displayResa;
 }
-
+// images
 function displayImages()
 {
     require __DIR__ .'/../../model/db.php';
@@ -241,4 +239,23 @@ function displayImages()
         </div>
         </div></form></div>';
     }else echo 'Aucune image à afficher';
+}
+
+//schedule
+function displayAdminSchedule()
+{
+    require __DIR__ .'/../../model/db.php';
+    $schedule = 'SELECT * FROM schedule';
+    foreach ($pdo->query($schedule) as $sche)
+    {
+        $displayAdminSchedule = print'
+        <tr>
+            <td>'. $sche->day.'</td>
+            <td>'. $sche->lunch.'</td>
+            <td>'. $sche->diner.'</td>
+            <td>'. $sche->opening.'</td>
+            <td><button type="button" class="btn btn-primary btn-sm"><a href="update-schedule.php?id='. $sche->id. '">Modifier</a></button></td>
+        </tr>';
+    }
+       return $displayAdminSchedule;
 }
