@@ -4,15 +4,7 @@ if (session_status() == PHP_SESSION_NONE)
 {
   session_start();
 }
-function displayUsers($users)
-{
-    require_once __DIR__ .'/../../model/db.php';
-    foreach ($pdo->query($users) as $user)
-    {
-        $text = print '<input type="radio" name="update-user" id="update-user" value/>' . $user->username .' '. $user->email;
-    }
-    return $text;
-}
+
 // pour register et login
 function displayPostErrors()
 {
@@ -46,7 +38,6 @@ function displayUpdateErrors()
      }
 }
 function displayBookingErrors()
-
 {
     require_once __DIR__ .'/check-post-errors.php';
     $checkErrors = checkBookingErrors();
@@ -61,7 +52,23 @@ function displayBookingErrors()
         print '</ul>';
      }
 }
-// checked le button radio / à la bdd
+function displayScheduleErrors()
+{
+    require_once __DIR__ .'/check-post-errors.php';
+    $checkErrors = checkScheduleErrors();
+    //Afficher les erreurs
+    if (!empty($checkErrors))
+    {
+        print '<ul>';
+        foreach ($checkErrors as $error)
+        {
+            print '<li>' .$error. '</li>';
+        }
+        print '</ul>';
+     }
+}
+
+// checked le button radio / aux données de la bdd
 function isChecked($dbValue, $htmlValue)
 {
     if ($dbValue == $htmlValue)
@@ -72,7 +79,7 @@ function isChecked($dbValue, $htmlValue)
       echo '';
     }
   }
-  // checked le button radio / à la bdd
+  // checked le select / aux données de la bdd
 function isSelected($dbValue, $htmlValue)
 {
     if ($dbValue == $htmlValue)

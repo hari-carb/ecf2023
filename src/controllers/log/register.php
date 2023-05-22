@@ -10,8 +10,9 @@ function register()
         if (empty($errors))
         {
             require_once __DIR__ .'/../../model/log/register.php';
+             // si la requête a fonctionné
             if ($registerUser)
-            {    // si la requête a fonctionné
+            {
                 $registerUser = null;
                 if ($_SESSION['authAdmin'])
                 {
@@ -27,6 +28,7 @@ function register()
                 }
              }else {
                     $_SESSION['flash']['danger'] = 'Un problème s\'est produit. L\'inscription n\'a pas été validée';
+                    header('Location: register.php');
                     exit();
             }
         }

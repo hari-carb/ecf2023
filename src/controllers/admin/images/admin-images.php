@@ -2,7 +2,6 @@
 
 require __DIR__ .'/../../../model/db.php';
 require __DIR__ .'/../display-admin.php';
-require __DIR__ .'/display.php';
 
 if (!empty($_POST))
 {

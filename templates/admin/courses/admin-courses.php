@@ -1,9 +1,10 @@
  <?php $title = "Restaurant Le Quai Antique - Administration - Carte"; ?>
-
+ <?php $h1 = "Gestion de la carte"; ?>
 <?php ob_start(); ?>
-<h1>Gestion de la carte</h1>
 <div class="container container-md container-lg center">
-    <button class="btn btn-primary"><a href="add-course.php">Ajouter un plat</a></button>
+    <a href="add-course.php">
+        <button class="btn btn-primary">Ajouter un plat</button>
+    </a>
     <h2>Liste des plats</h2>
 </div>
 <?php $courses = 'SELECT * FROM  plats_by_cat1';?>
@@ -17,11 +18,11 @@
         </tr>
     </thead>
     <tbody>
-    <?php adminDisplayCoursesByCategories('Entrée') ?>
-    <?php adminDisplayCoursesByCategories('Plat') ?>
-    <?php adminDisplayCoursesByCategories('Fromage') ?>
-    <?php adminDisplayCoursesByCategories('Dessert') ?>
-      </tbody>
+        <?php adminDisplayCoursesByCategories('Entrée') ?>
+        <?php adminDisplayCoursesByCategories('Plat') ?>
+        <?php adminDisplayCoursesByCategories('Fromage') ?>
+        <?php adminDisplayCoursesByCategories('Dessert') ?>
+    </tbody>
  </table>
 <?php $content = ob_get_clean(); ?>
 

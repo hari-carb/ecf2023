@@ -1,24 +1,25 @@
 <?php $title = "Restaurant Le Quai Antique - Administration"; ?>
-
+<?php $h1 = 'Espace Administration '.$_SESSION['authAdmin']->firstname .' '. $_SESSION['authAdmin']->username .''; ?>
 <?php ob_start(); ?>
-
-<h1>Espace Administration <?=$_SESSION['authAdmin']->firstname;?> <?= $_SESSION['authAdmin']->username;?>!</h1>
-
 <div>
-    <h3>Les réservations</h3>
-    <a href="src/controllers/admin/booking/admin-booking.php">Voir les réservations</a>
-
-    <h3>Gérer les utilisateurs et administrateurs</h3>
-    <a href="src/controllers/admin/users/admin-users.php">Ajouter, modifier ou supprimer</a>
-
-    <h3>Gérer la carte</h3>
-    <a href="src/controllers/admin/courses/admin-courses.php">Ajouter, modifier ou supprimer</a>
-    
-    <h3>Gérer les menus</h3>
-    <a href="src/controllers/admin/menus/admin-menus.php">Ajouter, modifier ou supprimer</a>
-</div>
-<h3>Gérer les images</h3>
-    <a href="src/controllers/admin/images/admin-images.php">Ajouter, modifier ou supprimer</a>
+    <a href="src/controllers/admin/booking/admin-booking.php">
+        <button type="button" class="submit">Les réservations</button>
+    </a>
+    <a href="src/controllers/admin/courses/admin-courses.php">
+        <button type="button" class="submit">Gérer la carte</button>
+    </a>
+    <a href="src/controllers/admin/menus/admin-menus.php">
+        <button type="button" class="submit">Gérer les menus</button>
+    </a>
+    <a href="src/controllers/admin/schedule/admin-schedule.php">
+        <button type="button" class="submit">Gérer les horaires</button>
+    </a>
+    <a href="src/controllers/admin/users/admin-users.php">
+        <button type="button" class="submit">Gérer les clients et administrateurs</button>
+    </a>
+    <a href="src/controllers/admin/images/admin-images.php">
+        <button type="button" class="submit">Gérer les images</button>
+    </a>
 </div>
 
 <?php $content = ob_get_clean(); ?>

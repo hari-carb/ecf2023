@@ -22,7 +22,11 @@ function displayAdminUsers()
             <td>'. $user->nbpers.'</td>
             <td>'. $user->allergies.'</td>
             <td><button type="button" class="btn btn-primary btn-sm"><a href="update-user.php?id='. $user->id. '">Modifier</a></button></td>
-            <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-user.php?id='. $user->id. '">Supprimer</a></button></td>
+            <td>
+                <a href="delete-user.php?id='. $user->id. '">
+                    <button type="button" class="btn btn-primary btn-sm">Supprimer</button>
+                </a>
+            </td>
         </tr>';
     }
        return $displayAdminUser;
@@ -40,8 +44,16 @@ function adminDisplayCoursesByCategories($type)
             <td>'. $course->title. '</td>
             <td>'. $course->description. '</td>
             <td>' .$course->price. '</td>
-            <td><button type="button" class="btn btn-primary btn-sm"><a href="update-course.php?id='. $course->p_id. '">Modifier</a></button></td>
-            <td><button type="button" class="btn btn-primary btn-sm"><a href="delete-course.php?id=' .$course->p_id. '">Supprimer</a></button></td>
+            <td>
+                <a href="update-course.php?id='. $course->p_id. '">
+                    <button type="button" class="btn btn-primary btn-sm">Modifier</button>
+                </a>
+            </td>
+            <td>
+                <a href="delete-course.php?id=' .$course->p_id. '">
+                    <button type="button" class="btn btn-primary btn-sm">Supprimer</button>
+                </a>
+            </td>
         </tr>';
     }
     return $displayCourse;
@@ -207,6 +219,41 @@ function displayAdminBooking($fromDate, $toDate)
     echo '</tbody></table></div>';
     return $displayResa;
 }
+function displayBooking()
+{
+    $today = currentDate();
+    $nextWeekDate = dateNextWeek();
+    $nextMonthDate = dateNextMonth();
+    $nextYearDate = dateNextYear();
+    $yesterday = datePastDay();
+    $pastWeekDate = datePastWeek();
+    $pastMonthDate = datePastMonth();
+    $pastYearDate = datePastYear();
+    if (!empty($_POST))
+    {
+        switch ($_POST['selectBooking'])
+        {
+        case 1: displayAdminBooking($today, $today);
+        break;
+        case 2: displayAdminBooking($today, $nextWeekDate);
+        break;
+        case 3: displayAdminBooking($today, $nextMonthDate);
+        break;
+        case 4: displayAdminBooking($today, $nextYearDate);
+        break;
+        case 5: displayAdminBooking($pastWeekDate, $yesterday);
+        break;
+        case 6: displayAdminBooking($pastMonthDate, $yesterday);
+        break;
+        case 7: displayAdminBooking($pastYearDate, $yesterday);
+        break;
+        default: "Pas de période sélectionnée";
+        }
+    }else
+    {
+        displayAdminBooking($today, $nextWeekDate);
+    }
+}
 // images
 function displayImages()
 {
@@ -230,7 +277,9 @@ function displayImages()
                     <input type="checkbox" name="add-slider[]" id="add-slider" value="'.$photo->id.'">
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary btn-sm"><a href="delete-image.php?id='. $photo->id .'">Supprimer l\'image</a></button>
+                    <a href="delete-image.php?id='. $photo->id .'">
+                        <button type="submit" class="btn btn-primary btn-sm">Supprimer l\'image</button>
+                    </a>
                 </div>
             </div>';
         }
@@ -254,7 +303,11 @@ function displayAdminSchedule()
             <td>'. $sche->lunch.'</td>
             <td>'. $sche->diner.'</td>
             <td>'. $sche->opening.'</td>
-            <td><button type="button" class="btn btn-primary btn-sm"><a href="update-schedule.php?id='. $sche->id. '">Modifier</a></button></td>
+            <td>
+                <a href="update-schedule.php?id='. $sche->id. '">
+                    <button type="button" class="btn btn-primary btn-sm">Modifier</button>
+                </a>
+            </td>
         </tr>';
     }
        return $displayAdminSchedule;

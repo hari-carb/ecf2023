@@ -1,4 +1,29 @@
 <?php
+
+/*menus-carte.php : affiche nom du menu, image, 
+bouton link to la liste de plats du menu sélectionné*/
+function displayMenus($menuName)
+{
+    print '<div class="card-body">';
+    print '<h2 class="card-text">'. $menuName .'</h2>';
+    require __DIR__ .'/../../model/db.php';
+    $menus =  $pdo->prepare("SELECT * FROM menus WHERE name='$menuName'");
+    $menus->execute();
+    $menu = $menus->fetch();
+    print '
+        <p class="card-text">'. $menu->price .' €</p>
+        <a href="menu.php?id='. $menu->id .'">
+            <button type="submit" class="submit">Consulter</button>
+        </a>';
+    print '</div>';
+}
+// dans menu.php : Affiche les plats d'un menu
+function displayMenuNameAndCourses()
+{
+    require __DIR__ .'/../../model/menus-carte/menu.php';
+    print '<h2>Menu '. $menuName->menu .'</h2>';
+    displayCoursesByMenu($getIdMenu);
+}
 //dans menu.php
 function displayCoursesByMenu($menuId)
 {
@@ -11,6 +36,7 @@ function displayCoursesByMenu($menuId)
     }
     return $displayCourseByMenu;
 }
+
 //dans carte.php, affiche les plats par categories epfd
 function displayCoursesByCat1($type)
 {
@@ -41,6 +67,7 @@ function displayCoursesByCat2($type)
     }
         return $displayCourseCat;
 }
+//dans carte.php, affiche les categories
 function displayCategories()
 {
     require __DIR__ .'/../../model/db.php';
@@ -51,19 +78,38 @@ function displayCategories()
     }
     return $displayCat;
 }
-/*menus-carte.php : affiche nom du menu, image, 
-bouton link to la liste de plats du menu sélectionné*/
-function displayMenus()
+
+// carte.php: Affiche les plats triés par catégories selon la sélection
+function displayCourses()
 {
-    require __DIR__ .'/../../model/db.php';
-    $menus = 'SELECT * FROM menus';
-    foreach ($pdo->query($menus) as $menu)
+// Affiche les plats triés par catégories selon la sélection
+    if (!empty($_POST))
     {
-        $displayMenus = print '
-        <h2>'. $menu->name .'</h2>
-        <button class="submit">
-            <a href="menu.php?id='. $menu->id .'"> Consulter</a>
-        </button>';
+        switch ($_POST['selectCat'])
+        {
+        case 1: displayCoursesByCat1('Entrée');
+        break;
+        case 2: displayCoursesByCat1('Plat');
+        break;
+        case 3: displayCoursesByCat1('Fromage');
+        break;
+        case 4: displayCoursesByCat1('Dessert');
+        break;
+        case 5: displayCoursesByCat2('Végétarien');
+        break;
+        case 6: displayCoursesByCat2('Poisson');
+        break;
+        case 7: displayCoursesByCat2('Viande');
+        break;
+        case 8: displayCoursesByCat2('Fruits de mer');
+        break;
+        }
+    }else
+    {
+        // Affiche les plats de la catégorie 1
+        displayCoursesByCat1('Entrée');
+        displayCoursesByCat1('Plat');
+        displayCoursesByCat1('Fromage');
+        displayCoursesByCat1('Dessert');
     }
-    return $displayMenus;
 }

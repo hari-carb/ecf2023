@@ -1,10 +1,6 @@
 <?php
-require __DIR__ .'/../db.php';
-$getCourseId = $_GET['id'];
-$courses = $pdo->prepare('SELECT * FROM plats WHERE id = ?');
-$courses->execute(array($getCourseId));
-$course=$courses->fetch();
 
+require __DIR__ .'/../db.php';
 $updateCourse = $pdo->prepare("UPDATE plats SET title = ?, description = ?, price= ? WHERE id = '$getCourseId'");
 $updateCourse->execute(array($_POST['title'], $_POST['description'], $_POST['price']));
 

@@ -22,11 +22,8 @@ function checkPostEmail($email)
 }
 function checkPasswordFormat($password)
 {
-    $maj = preg_match('@[A-Z]@', $password);
-	$min = preg_match('@[a-z]@', $password);
-	$number = preg_match('@[0-9]@', $password);
     if (empty($password) || $password != $_POST['password_confirm']
-    || !$min || !$maj || !$number || strlen($password) < 8)
+    || !preg_match('/^[A-Za-z0-9]+$/', $password) || strlen($password) < 8)
     {
         return false;
     }
@@ -42,7 +39,16 @@ function checkPostTel($tel)
 }
 function checkPostAllergies($allergies)
 {
-    if (!preg_match('/^[0-9a-zA-ZÀ-ú\s_]+$/', $allergies))
+    if (!preg_match('/^[a-zA-ZÀ-ú\s_]+$/', $allergies))
+    {
+       return false;
+    }
+    return true;
+}
+
+function checkPostSchedule($schedule)
+{
+    if (empty($schedule) || !preg_match('/^[0-9a-zA-ZÀ-ú\s_]+$/', $schedule))
     {
        return false;
     }
@@ -76,17 +82,15 @@ function checkBookingErrors()
         {
             $bookErrors['email'] = "Votre email n'est pas valide";
         }
-        if (!checkPostAllergies($_POST['allergies']))
+        if (!empty ($_POST['allergies']))
         {
-            $bookErrors['allergies'] = "Pas de caractères spéciaux.";
+            if (!checkPostAllergies($_POST['allergies']))
+            {
+                $bookErrors['allergies'] = "Seuls les lettres, les chiffres et les espaces sont autorisés dans le champ Allergies.";
+            }
         }
-        if (!empty($mErrors))
-        {
             $errors = array_merge($mErrors, $bookErrors);
-        }else
-        {
-            $errors=$bookErrors;
-        }
+
             return $errors;
         }
 }
@@ -114,7 +118,20 @@ function checkPostErrors()
             Il doit comporter au moins 8 caratères, une majuscule, une minuscule et un chiffre
             et ne doit pas être différent du mot de passe de confirmation";
         }
-        $errors = array_merge($mErrors, $postErrors);
+        if (!empty ($_POST['allergies']))
+        {
+            if (!checkPostAllergies($_POST['allergies']))
+            {
+                $bookErrors['allergies'] = "Seuls les lettres, les chiffres et les espaces sont autorisés dans le champ Allergies.";
+            }
+        }
+        if (!empty($mErrors))
+        {
+            $errors = array_merge($mErrors, $postErrors);
+        }else
+        {
+            $errors=$postErrors;
+        }
         return $errors;
         }
 }
@@ -137,7 +154,29 @@ function checkUpdateErrors()
             Il doit comporter au moins 8 caratères, une majuscule, une minuscule et un chiffre
             et ne doit pas être différent du mot de passe de confirmation";
         }
-        $errors = array_merge($mErrors, $updateErrors);
+        if (!empty($mErrors))
+        {
+            $errors = array_merge($mErrors, $updateErrors);
+        }else
+        {
+            $errors=$updateErrors;
+        }
+        return $errors;
+        }
+}
+function checkScheduleErrors()
+{
+    if (!empty($_POST))
+    {
+        $errors = array();
+        if (!checkPostSchedule($_POST['lunch']))
+        {
+            $errors['lunch'] = "Seuls les chiffres, les lettres et les espaces sont autorisés dans le champ Service du midi";
+        }
+        if (!checkPostSchedule($_POST['diner']))
+        {
+            $errors['diner'] = "Seuls les chiffres, les lettres et les espaces sont autorisés dans le champ Service du soir";
+        }
         return $errors;
         }
 }

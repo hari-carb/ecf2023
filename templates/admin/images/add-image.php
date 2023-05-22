@@ -1,14 +1,11 @@
 <?php $title = "Restaurant Le Quai Antique - Administration - Images"; ?>
-
+<?php $h1 = "Ajouter une image"; ?>
 <?php ob_start(); ?>
-<h1>Ajouter une image</h1>
 <div class="errors">
-<strong>
-	<?php if (isset($message))
-	{
-		echo $message;
-	}?>
-</strong>
+		<?php if (isset($message))
+		{
+			echo $message;
+		}?>
 </div>
 <form class="form" id="form" action="" method="POST" enctype="multipart/form-data">
 	<label class="formLabel" for="fileImg">Choisir un fichier</label>

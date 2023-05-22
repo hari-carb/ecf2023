@@ -25,8 +25,7 @@ function displayUserBooking($fromDate, $toDate)
         <thead>
             <tr>
                 <th>Date</th>
-                <th>Déjeuner</th>
-                <th>Diner</th>
+                <th>Service</th>
                 <th>Nb pers</th>
             </tr>
         </thead>
@@ -41,8 +40,7 @@ function displayUserBooking($fromDate, $toDate)
                 $displayResa = print'
                 <tr>
                     <td>'. $resa->date.'</td>
-                    <td>'. $resa->lunch.'</td>
-                    <td>'. $resa->diner.'</td>
+                    <td>'. $resa->time.'</td>
                     <td>'. $resa->nbpers.'</td>
                 </tr>';
             }
@@ -54,14 +52,13 @@ function displayUserBooking($fromDate, $toDate)
             <tr>
             <td>Pas de réservation pour cette période</td>
         </tr>';
-    }
-}else
-{
+        }
+    }else
+    {
     $displayResa = print '
     <div class="container container-md container-lg center">
         <p>Vous n\'avez pas encore réservé</p>
     </div>';
-       
     }
     return $displayResa;
 }

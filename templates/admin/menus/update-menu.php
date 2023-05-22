@@ -1,8 +1,6 @@
 <?php $title = "Restaurant Le Quai Antique - Administration - Menu"; ?>
-
+<?php $h1 = "Modifier un menu"; ?>
 <?php ob_start(); ?>
-
-<h1>Modifier un menu</h1>
 <div  class="errors">
 <?php
 if (!empty($_POST))

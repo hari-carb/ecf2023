@@ -1,6 +1,5 @@
 <?php $title = "Restaurant Le Quai Antique - La Carte"; ?>
-
-
+<?php $h1 = "La carte"; ?>
 <?php ob_start(); ?>
 <?php require __DIR__ .'/nav-menu.php'; ?>
 <div class="center">
@@ -17,6 +16,7 @@
             <option value="8">Fruits de mer</option>
         </select>
     </form>
+    <?php displayCourses(); ?>
 </div>
 
 <?php $content = ob_get_clean(); ?>
