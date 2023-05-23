@@ -5,13 +5,13 @@ bouton link to la liste de plats du menu sélectionné*/
 function displayMenus($menuName)
 {
     print '<div class="card-body">';
-    print '<h2 class="card-text">'. $menuName .'</h2>';
+    print '<h2 class="card-text menu">'. $menuName .'</h2>';
     require __DIR__ .'/../../model/db.php';
     $menus =  $pdo->prepare("SELECT * FROM menus WHERE name='$menuName'");
     $menus->execute();
     $menu = $menus->fetch();
     print '
-        <p class="card-text">'. $menu->price .' €</p>
+        <p class="card-text menu">'. $menu->price .' €</p>
         <a href="menu.php?id='. $menu->id .'">
             <button type="submit" class="submit">Consulter</button>
         </a>';
@@ -43,7 +43,7 @@ function displayCoursesByCat1($type)
     require __DIR__ .'/../../model/db.php';
     $coursesCat = "SELECT title, description, price FROM plats_by_cat1 WHERE c1_type = '$type'";
     print '
-    <h2>'. $type .'s</h2>';
+    <h2>'. $type .'</h2>';
     foreach ($pdo->query($coursesCat) as $course)
     {
         $displayCourseCat = print '<h3>' . $course->title . '</h3>
@@ -58,7 +58,7 @@ function displayCoursesByCat2($type)
     require __DIR__ .'/../../model/db.php';
     $coursesCat = "SELECT title, description, price FROM plats_by_cat2 WHERE c2_type = '$type'";
     print '
-    <h2>'. $type .'s</h2>';
+    <h2>'. $type .'</h2>';
     foreach ($pdo->query($coursesCat) as $course)
     {
         $displayCourseCat = print '<h3>' . $course->title . '</h3>

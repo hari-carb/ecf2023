@@ -1,8 +1,9 @@
 <?php $title = "Restaurant Le Quai Antique - Administration"; ?>
 <?php $h1 = 'Espace Administration '.$_SESSION['authAdmin']->firstname .' '. $_SESSION['authAdmin']->username .''; ?>
 <?php ob_start(); ?>
-<div>
-    <a href="src/controllers/admin/booking/admin-booking.php">
+<
+<div class="form-group">
+    <a class="nav-item nav-link" href="src/controllers/admin/booking/admin-booking.php">
         <button type="button" class="submit">Les réservations</button>
     </a>
     <a href="src/controllers/admin/courses/admin-courses.php">

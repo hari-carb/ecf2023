@@ -20,7 +20,8 @@ function displayUserBooking($fromDate, $toDate)
 {
     if (!checkEmail())
     {
-        echo '<div class="container container-md container-lg center">
+        echo '<div class="row justify-content-center">
+        <div class="col-auto">
         <table name="liste-admin-booking" class="table table-responsive table-striped table-bordered">
         <thead>
             <tr>
@@ -53,6 +54,7 @@ function displayUserBooking($fromDate, $toDate)
             <td>Pas de réservation pour cette période</td>
         </tr>';
         }
+        echo '</tbody></table></div></div>';
     }else
     {
     $displayResa = print '
@@ -61,4 +63,28 @@ function displayUserBooking($fromDate, $toDate)
     </div>';
     }
     return $displayResa;
+}
+function insertBookingUser()
+{
+    require __DIR__ .'/../admin/display-admin.php';
+    $today = currentDate();
+    $nextYearDate = dateNextYear();
+    $pastMonthDate = datePastMonth();
+    $pastYearDate = datePastYear();
+    if (!empty($_POST))
+    {
+        switch ($_POST['selectBooking'])
+        {
+        case 1: displayUserBooking($today, $nextYearDate);
+        break;
+        case 2: displayUserBooking($pastMonthDate, $today);
+        break;
+        case 3: displayUserBooking($pastYearDate, $today);
+        break;
+        default: "Pas de période sélectionnée";
+      }
+    }else
+    {
+      displayUserBooking($today, $nextYearDate);
+    }
 }

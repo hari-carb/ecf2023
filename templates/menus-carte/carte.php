@@ -2,7 +2,6 @@
 <?php $h1 = "La carte"; ?>
 <?php ob_start(); ?>
 <?php require __DIR__ .'/nav-menu.php'; ?>
-<div class="center">
     <form id="form" onChange= "form.submit()" class="form-control" action="carte.php" method="POST">
         <select name="selectCat" class="form-select" aria-label= "Sélectionner une catégorie de plat">
             <option selected>Sélection</option>
@@ -17,7 +16,6 @@
         </select>
     </form>
     <?php displayCourses(); ?>
-</div>
 
 <?php $content = ob_get_clean(); ?>
 

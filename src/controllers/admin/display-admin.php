@@ -117,7 +117,7 @@ function displayCourse($idMenu)
     print '</tbody></table>
     <form id="form'.$idMenu. '" onChange= "form'.$idMenu. '.submit()" class="form-control" action="admin-menus.php" method="POST">
         <input type="hidden" id="menuId" name="menuId" value="'. $idMenu .'">
-        <select id="addCourseMenu" name="addCourseMenu">
+        <select id="addCourseMenu" class="form-select" name="addCourseMenu">
             <option value="">Ajouter un plat</option>';
             foreach ($pdo->query($courses) as $course)
             {
@@ -269,8 +269,8 @@ function displayImages()
             echo '
             <div class="col">
             <p>'. $photo->description .'</p>
-                <a href="images/'. $photo->name .'">
-                    <img src="mini/'. $photo->name .'" alt="Image" />
+                <a href="images/'. $photo->name .'" target="_blank"  alt="'. $photo->name .'">
+                    <img src="mini/'. $photo->name .'" alt="'. $photo->name .'" />
                 </a>
                 <div>
                     <label for="add-slider">Ajouter au slider</label>
@@ -278,15 +278,14 @@ function displayImages()
                 </div>
                 <div>
                     <a href="delete-image.php?id='. $photo->id .'">
-                        <button type="submit" class="btn btn-primary btn-sm">Supprimer l\'image</button>
+                        <button type="button" class="btn btn-primary btn-sm">Supprimer l\'image</button>
                     </a>
                 </div>
             </div>';
         }
-        echo '<div class="col">
-            <button type="submit" name="btn_upload" class="submit">Valider</button>
-        </div>
-        </div></form></div>';
+        echo ' </div>
+        <button type = "submit" class="btn-admin btn btn-primary btn-large">Ajouter au slider</button>
+        </form></div>';
     }else echo 'Aucune image à afficher';
 }
 

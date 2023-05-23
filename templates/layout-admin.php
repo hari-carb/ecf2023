@@ -67,26 +67,26 @@ require __DIR__ .'/../src/controllers/display-layout.php'; ?>
         <?= $content ?>
     </div>
     <footer>
-    <section class="custom-flex-column">
-        <article class="row justify-content-center">
-            <div class="col-sm-5 m-1">
-                <h3 class="">Restaurant le Quai Antique</h3>
-                <h3 class="card-text">65 rue de la République <br>73000 Chambery</h3>
-                <p class="card-text">Télephone : 01 02 03 04 05</p>
-                <a href="booking.php"><button type="button" class="submit">Réserver</button></a>
-            </div>
-            <div class="col-sm-5 m-1">
-                <h3 class="">Horaires d'ouverture</h3>
-                <div>
-                    <table>
-                        <?php displayScheduleOpen(); ?>
-                        <td colspan="2">Fermé le <?= $scheC->day; ?></td>
-                    </table>
+        <section class="custom-flex-column">
+            <article class="row justify-content-center">
+                <div class="col-sm-5 m-1">
+                            <h2>Restaurant le Quai Antique</h2>
+                            <p class="card-text">65 rue de la République <br>73000 Chambery</p>
+                            <p class="card-text">Télephone : 01 02 03 04 05</p>
+                            <a href="../../../../booking.php"><button type="button" class="submit">Réserver</button></a>
                 </div>
-            </div>
-        </article>
-    </section>
-</footer>
+                <div class="col-sm-5 m-1">
+                        <h2>Horaires d'ouverture</h2>
+                        <div class="row justify-content-center">
+                        <table>
+                            <?php displayScheduleOpen(); ?>
+                            <td colspan="2">Fermé le <?= $scheC->day; ?></td>
+                        </table>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="../../../../script/script.js"></script>

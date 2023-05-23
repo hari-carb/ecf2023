@@ -1,4 +1,4 @@
-<?php $title = "Restaurant Le Quai Antique - Administration - Utilisateurs"; ?>
+<?php $title = "Restaurant Le Quai Antique - Espace Client"; ?>
 <?php $h1 = "Modifier votre compte"; ?>
 <?php ob_start(); ?>
 <div  class="errors">

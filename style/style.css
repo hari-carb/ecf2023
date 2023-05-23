@@ -1,5 +1,8 @@
-html {
-    margin:0;
+html, body {
+    width: 100vw;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 body {
     font-family: 'Quicksand', sans-serif;
@@ -9,6 +12,7 @@ body {
     line-height: 1.7em;
     font-weight: 500;
 }
+/* navbar*/
 .navbar {
     background-color: white;
     border-bottom: 1px solid #cccbcb;
@@ -23,6 +27,8 @@ body {
     margin: auto;
     justify-content: center;
     padding: 10px;
+    font-family: 'Julius Sans One', sans-serif;
+
 }
 .navbar-nav, .navbar-collapse {
     align-items: end;
@@ -36,25 +42,37 @@ body {
     color: white;
     background-color: #CDB775;
 }
+/*content*/
 .container-fluid {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
-.center {
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;    
+    font-weight: 400;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/*.center {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+}*/
 
-h1, h2, h3, h4, p, button {
+/* titles */
+h1, h2, h3, h4, button {
     text-align: center;
     padding-top: 20px;
 }
 h1 {
     font-family: 'Julius Sans One', sans-serif;
     font-size: 2.5rem;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     background-color: #CDB775;
+    margin-bottom: 0;
 }
 h2 {
     font-size: 1.3rem;
@@ -65,23 +83,7 @@ h3 {
     padding-bottom: 0;
     margin-bottom: 0%;
 }
-.title-carousel {
-    color: #3F3F3E;
-    background-color: white;
-    border: 1px solid #CDB775;
-    box-shadow: 0 30px 50px 0 #c2c2c1;
-    border-radius: 5px;
-}
-p {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 0;
-    font-weight: 400;
-    font-size: 1rem;
-}
-.courses {
-    font-size: 0.8rem;
-}
+/*links*/
 a, .link {
     color: #CDB775;
     font-weight: bold;
@@ -89,23 +91,83 @@ a, .link {
 }
 a:hover, .link:hover {
     font-size: 1rem;
-    color: #9999A1;
+    color: #3F3F3E;
     text-decoration: none ;
 }
-option {
-    color: #3F3F3E;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 0.9rem;
+/*carousel*/
+@media screen and (min-width: 1000px) {
+    .carousel {
+        max-width: 70%;
+        margin: auto;
+    }
 }
-li {
+ .carousel-item img {
+    height:50vw;
+    width:100vw; 
+    object-fit: cover;
+}
+.title-carousel {
+    display: block;
+    margin: 10px auto;
+    max-width: 450px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid #CDB775;
+    transition: all 0.5s ease 0s;
+    color: #3F3F3E;
+    background-color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.title-carousel:hover {
+    box-shadow: 15px 15px 15px 5px rgba(78, 72, 77, 0.219);
+    transform: translateY(-3px);
+    width: 500px;
+    color: #9999A1;
+}
+
+/*horaires*/
+.horaires {
+    background-color: #CDB775;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.horaires-text {
+    font-size: 1.2rem;
+    text-align: center;
+}
+/*cards*/
+.custom-flex-column {
+    padding-bottom: 20px;
+    padding-top: 20px;
+  }
+.card-image {
+    max-width: 540px;
+    height: auto;
+}
+.menu {
+    padding-bottom: 5px;
+}
+/*carte et menus*/
+.courses {
+    font-size: 0.8rem;
+}
+
+/*li {
     text-decoration: none;
     padding: 5px 15px 5px 15px;
-}
+}*/
 .errors {
     background-color: rgb(202, 95, 95);
     color: white;
 }
-
+/*images*/
+.col {
+    padding: 15px;
+    margin: 10px;
+    border: 1px solid #CDB775;
+    border-radius: 5px;
+}
 /*form*/
 .form-control {
     max-width: 500px;
@@ -151,9 +213,8 @@ li {
 
 .info {
     font-size: 0.7rem;
-    text-align: center;
 }
-.btn-radio {
+.btn-radio, .info {
     text-align: center;
 }
 
@@ -164,6 +225,11 @@ legend {
 }
 .checkbox {
     margin-left: 170px;
+}
+option {
+    color: #3F3F3E;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
 }
 
 .form-checkbox {
@@ -209,7 +275,7 @@ legend {
     transition: all 0.5s ease 0s;
     color: #CDB775;
     background-color: white;
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: bold;
 }
 .submit:hover {
@@ -224,8 +290,8 @@ legend {
 .display {
     display: none;
 }
-/*fin form*/
-/*réservations*/
+
+/*form réservations*/
 .btn-booking {
     display: flex;
     flex-direction: row;
@@ -259,12 +325,24 @@ legend {
     transform: translateY(-3px);
     min-width: 40px;
     color: #9999A1;
-  }
+}
 .btn > a {
     color: white;
     font-weight: normal;
-    font-size: 0.8rem;
 }
+.btn-admin {
+    display: block;
+    margin: 20px auto;
+}
+.button-admin > a {
+    font-size: 1.2rem;
+}
+.form-select {
+    width: 100%;
+    margin: auto;
+}
+/*fin form*/
+/* Tables */
 .table {
     font-size: 0.8rem
 }
@@ -272,6 +350,7 @@ legend {
     font-size: 1.2rem;
     font-weight: bold;
 }
+
 /*date-picker*/
 .datepicker {
     background-color: #ebebeb;
@@ -330,69 +409,10 @@ legend {
 }
 
 /*upload images*/
-.main {
-    height: 100%; 
-    display: flex; 
-    justify-content: center;
-}
-.main .image-box{
-    width:300px; 
-    margin-top: 30px;
-}
-.main h2 {
-    text-align: center; 
-    color: #4D4D4D;
-}
-.main .tb {
-    width: 100%; 
-    height: 40px; 
-    margin-bottom: 5px; 
-    padding-left: 5px;
-}
-.main .file_input {
-    margin-top: 10px; 
-    margin-bottom: 10px;
-}
-.main .btn{
-    width: 100%; 
-    height: 40px; 
-    border: none; 
-    border-radius: 3px; 
-    background: #27a465; 
-    color: #f7f7f7;
-}
-.main .msg{
-    color: red; 
-    text-align: center;
-}
-.img-box{
-    margin-top: 20px;
-}
-.img-block{
-    float: left; 
-    margin-right: 5px; 
-    text-align: center;}
-p {
-    margin-top: 0;
-}
-.img {
-    width: 375px; 
-    min-height: 250px; 
-    margin-bottom: 10px; 
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important; 
-    border:6px solid #f7f7f7;
-}
-/*horaires*/
-.horaires {
-    background-color: #CDB775;
-    padding: 15px;
-    margin-bottom: 20px;
-}
-.horaires-text {
-    text-align: center;
-}
+
+
 /*footer*/
 footer {
     background-color:#CDB775;
-    pmargin-top: 30px;
+    margin-top: 30px;
 }

@@ -9,7 +9,7 @@
             <form id="form-nb-max" class="" action="admin-booking.php" method="POST">
                 <label class="formLabel" for="nb-max">Nombre maximum</label>
                 <input type="number" id="nb-max" class="number"  name="nb-max" placeholder="<?= $nbMax->nbMax; ?>" required />
-                <button type="submit" class="submit">Modifier</button>
+                <button class="btn-admin btn btn-primary btn-large">Modifier</button>
             </form>
         </div>
         <form id="form" onChange= "form.submit()" class="form-control" action="admin-booking.php" method="POST">
