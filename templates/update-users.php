@@ -4,13 +4,13 @@
 <div  class="errors">
 <?php if (!empty($_POST))
   {
-    require_once __DIR__ .'/../../src/controllers/log/display.php';
+    require_once __DIR__ .'/../src/controllers/log/display.php';
     displayUpdateErrors();
   } ?>
 </div>
 <form class="form" id="form" action="" method="POST">
   <label class="formLabel" for="firstname">Prénom</label>
-  <input type="text" id="firstname" class="name formEntry"  name="firstname" value="<?=$_SESSION['authUser']->firstnmae; ?>"pattern="^[a-zA-ZÀ-ú\s_]+$" title="Lettres et espaces" required />
+  <input type="text" id="firstname" class="name formEntry"  name="firstname" value="<?=$_SESSION['authUser']->firstname; ?>"pattern="^[a-zA-ZÀ-ú\s_]+$" title="Lettres et espaces" required />
   <label class="formLabel" for="username">Nom</label>
   <input type="text" id="username" class="name formEntry" name="username" value="<?=$_SESSION['authUser']->username; ?>" pattern="^[a-zA-ZÀ-ú\s_]+$" title="Lettres et espaces" required />
   <label class="formLabel" for="email">Email</label>
@@ -30,4 +30,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require __DIR__ .'/../../layout-admin.php'; ?>
+<?php require __DIR__ .'/layout.php'; ?>

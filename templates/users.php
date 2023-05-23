@@ -1,5 +1,5 @@
 <?php $title = "Restaurant Le Quai Antique - Client"; ?>
-<?php $h1 = 'Bienvenue sur votre espace client '.$_SESSION['authUser']->firstname .' '. $_SESSION['authUser']->username .''; ?>
+<?php $h1 = 'Bienvenue sur votre espace client <br>'.$_SESSION['authUser']->firstname .' '. $_SESSION['authUser']->username .''; ?>
 <?php ob_start(); ?>
 <h2>Vos réservations</h2>
 <form id="form" onChange= "form.submit()" class="form-control" action="users.php" method="POST">
@@ -21,7 +21,7 @@
     <p>Téléphone : 0<?=$_SESSION['authUser']->tel; ?></p>
     <p>Nombre de personnes : <?=$_SESSION['authUser']->nbpers; ?></p>
     <p>Allergies : <?=$_SESSION['authUser']->allergies; ?></p>
-    <a href="src/controllers/users/update-users.php">
+    <a href="update-users.php">
         <button  type="button" class="submit">Modifier vos coordonnées</button>
     </a>
 <?php $content = ob_get_clean(); ?>

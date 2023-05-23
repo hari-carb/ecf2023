@@ -1,11 +1,17 @@
 <?php
+session_start();
 
-if (isset($_GET['id']) && !empty($_GET['id']))
-{
-        require __DIR__ .'/../../../model/images/delete-image.php';
-        $_SESSION['flash']['success'] = 'L\'image a bien été supprimée';
-        header('Location: admin-images.php');
-}else
-{
-    $_SESSION['flash']['danger'] = 'L\'identifiant n\'a pas été récupéré';
-}
+
+    require __DIR__ .'/../../../model/images/delete-image.php';
+    if ($deletePhoto)
+    {
+        $deletePhoto = null;
+        $_SESSION['flash']['success'] = "L'image a bien été supprimée";
+        header('location: admin-images.php');
+        exit();
+    }else
+    {
+        $_SESSION['flash']['success'] = "L'image n'a pas été supprimée";
+        header('location: admin-images.php');
+        exit();
+    }

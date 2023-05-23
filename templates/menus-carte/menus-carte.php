@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-5 col-lg-3 m-3">
+        <div class="col-sm-4 col-lg-3 m-3">
             <div class="card">
                 <img src="images/photo-menu-05.jpg" class="card-img-top" alt="Menu Déjeuner">
                 <?php displayMenus("Déjeuner"); ?>
@@ -26,7 +26,7 @@
                 <?php displayMenus("Dégustation"); ?>
             </div>
         </div>
-        <div class="col-sm-5 col-lg-3 m-3">
+        <div class="col-sm-4 col-lg-3 m-3">
             <div class="card">
                 <img src="images/photo-menu-01.jpg" class="card-img-top" alt="Menu Duo">
                 <?php displayMenus("Duo"); ?>

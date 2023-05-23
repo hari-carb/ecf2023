@@ -5,7 +5,7 @@ bouton link to la liste de plats du menu sélectionné*/
 function displayMenus($menuName)
 {
     print '<div class="card-body">';
-    print '<h2 class="card-text menu">'. $menuName .'</h2>';
+    print '<h2 class="card-text menu">Menu<br>'. $menuName .'</h2>';
     require __DIR__ .'/../../model/db.php';
     $menus =  $pdo->prepare("SELECT * FROM menus WHERE name='$menuName'");
     $menus->execute();
